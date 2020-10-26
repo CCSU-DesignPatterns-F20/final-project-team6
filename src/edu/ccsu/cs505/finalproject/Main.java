@@ -1,4 +1,4 @@
-package edu.ccsu.cs505;
+package edu.ccsu.cs505.finalproject;
 
 public class Main {
 
