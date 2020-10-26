@@ -1,4 +1,5 @@
 package edu.ccsu.cs505.finalproject.food;
 
-public interface Food {
+public abstract class Food {
+	abstract public void prepare();
 }
