@@ -3,18 +3,10 @@ import java.util.ArrayList;
 
 public class InPerson implements OrderingStrategy {
 
-    String foodPick;
-    ArrayList<Object> toppingsPick = new ArrayList<Object>();
+    Customer C;
 
-    /**
-     *
-     * @param foodItem item the customer select (pizza or grinder)
-     * @param toppingsItem arraylist of toppings for that item
-     */
-
-    public InPerson(String foodItem, ArrayList<Object> toppingsItem) {
-        foodPick = foodItem;
-        toppingsPick = toppingsItem;
+    public InPerson(Customer customer) {
+        C=customer;
     }
 
     /**
@@ -22,33 +14,37 @@ public class InPerson implements OrderingStrategy {
      */
     @Override
     public void orderFood() {
-//        send order to cashier
+
+        System.out.println("Hello " + C.name + " thank you for coming to our restaurant. Here are the items we have today");
+        Menu.showMenu();
+        Cashier cashier=new Cashier();
+        cashier.processOrder();
     }
 
     /**
      *
      * @return returns food and toppings
      */
-    @Override
-    public String toString() {
-        return ("The food selection is " + foodPick + " with " + toppingsPick);
-    }
+//    @Override
+//    public String toString() {
+//        return ("The food selection is " + foodPick + " with " + toppingsPick);
+//    }
 
     /**
      *
      * @param x compare object x to this object
      * @return boolean response
      */
-    @Override
-    public boolean equals (Object x)
-    {
-        if(!(x instanceof InPerson)) { return false;}
-        else if(x == this) { return true;}
-        else {
-            InPerson in = (InPerson) x;
-            return (in.foodPick.equals(this.foodPick)) && (in.toppingsPick.equals(this.toppingsPick));
-        }
-    }
+//    @Override
+//    public boolean equals (Object x)
+//    {
+//        if(!(x instanceof InPerson)) { return false;}
+//        else if(x == this) { return true;}
+//        else {
+//            InPerson in = (InPerson) x;
+//            return (in.foodPick.equals(this.foodPick)) && (in.toppingsPick.equals(this.toppingsPick));
+//        }
+//    }
 
     /**
      *
@@ -59,28 +55,5 @@ public class InPerson implements OrderingStrategy {
     {
 //        will add proper hashcode
         return 0;
-    }
-}
-class Test
-{
-    public static void main(String[] args)
-    {
-        System.out.println("test");
-        String selection = "grinder";
-        ArrayList<Object> top = new ArrayList<Object>();
-        top.add("cheese");
-        top.add("lettuce");
-        InPerson O = new InPerson(selection, top);
-
-        String selection2 = "pizza";
-        ArrayList<Object> top2 = new ArrayList<Object>();
-        top2.add("mushrooms");
-        top2.add("sausage");
-        InPerson O2 = new InPerson(selection2, top2);
-
-        System.out.println("Does 1 and 2 equal? " + O.equals(O2));
-        System.out.println(O.toString());
-        System.out.println(O2.toString());
-
     }
 }
