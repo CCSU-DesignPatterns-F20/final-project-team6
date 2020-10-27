@@ -2,20 +2,43 @@ package edu.ccsu.cs505.finalproject.processing;
 import java.util.ArrayList;
 
 public class InPerson implements OrderingStrategy {
+
     String foodPick;
     ArrayList<Object> toppingsPick = new ArrayList<Object>();
+
+    /**
+     *
+     * @param foodItem item the customer select (pizza or grinder)
+     * @param toppingsItem arraylist of toppings for that item
+     */
+
     public InPerson(String foodItem, ArrayList<Object> toppingsItem) {
         foodPick = foodItem;
         toppingsPick = toppingsItem;
     }
+
+    /**
+     * food selection will be sent to cashier
+     */
     @Override
     public void orderFood() {
 //        send order to cashier
     }
+
+    /**
+     *
+     * @return returns food and toppings
+     */
     @Override
     public String toString() {
         return ("The food selection is " + foodPick + " with " + toppingsPick);
     }
+
+    /**
+     *
+     * @param x compare object x to this object
+     * @return boolean response
+     */
     @Override
     public boolean equals (Object x)
     {
@@ -26,18 +49,38 @@ public class InPerson implements OrderingStrategy {
             return (in.foodPick.equals(this.foodPick)) && (in.toppingsPick.equals(this.toppingsPick));
         }
     }
+
+    /**
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode()
+    {
+//        will add proper hashcode
+        return 0;
+    }
 }
 class Test
 {
     public static void main(String[] args)
     {
         System.out.println("test");
-        String selection = "hamburger";
+        String selection = "grinder";
         ArrayList<Object> top = new ArrayList<Object>();
         top.add("cheese");
         top.add("lettuce");
         InPerson O = new InPerson(selection, top);
-        System.out.println("fuck this shit");
+
+        String selection2 = "pizza";
+        ArrayList<Object> top2 = new ArrayList<Object>();
+        top2.add("mushrooms");
+        top2.add("sausage");
+        InPerson O2 = new InPerson(selection2, top2);
+
+        System.out.println("Does 1 and 2 equal? " + O.equals(O2));
         System.out.println(O.toString());
+        System.out.println(O2.toString());
+
     }
 }
