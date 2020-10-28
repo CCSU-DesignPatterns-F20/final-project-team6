@@ -15,6 +15,9 @@ public class Cashier {
     List<String> toppingsPick = new ArrayList<String>();
     MealFactory foodFactory;
 
+    /**
+     * cashier takes order from customer, sends to cash register then to the chef
+     */
     public void processOrder() {
         System.out.println("Which number would you like to order?");
         Scanner scanner = new Scanner(System.in);
@@ -27,7 +30,6 @@ public class Cashier {
             foodPick = foodFactory.makeFood();
 
             System.out.println("Which topping would you like on your pizza? Enter one at a time.Type q to finish");
-//            boolean user = true;
             String topping = scanner.nextLine();
             while (keepGoing) {
                 toppingsPick.add(topping);
@@ -36,8 +38,7 @@ public class Cashier {
                     keepGoing = false;
                 }
             }
-
-            }else{
+        } else {
             foodFactory = new GrinderFactory();
             foodPick = foodFactory.makeFood();
             System.out.println("Which topping would you like on your grinder? Enter one at a time.Type q to finish");
@@ -52,14 +53,30 @@ public class Cashier {
 
             }
         }
-        System.out.println("So you'll have a " + foodPick + " with " + toppingsPick);
+        System.out.println("So you'll have a " + foodPick + " with " + toppingsPick+ "? Let me enter that into the cash register");
 //        send to cashregister
-//        send to cook
-        Chef chef=new Chef("Bobby Flay");
-        try {
-            chef.getOrder(foodPick, toppingsPick);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Sending to the chef now");
+        this.sendToChef();
     }
+        private void sendToChef(){
+            Chef chef=new Chef("Bobby Flay");
+            try {
+                chef.getOrder(foodPick, toppingsPick);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+    }
+    private void processTransaction(){
+//        send to cash register
+    }
+
+    @Override
+    @Override
+    public String toString() {
+        return ("Food picked " + foodPick+ " with toppings " + toppingsPick);
+    }
+
+}
+class test2{
+    main String void
 }

@@ -15,13 +15,10 @@ public class InPerson implements OrderingStrategy {
         cashier.processOrder();
     }
 
-    /**
-     *
-     * @return returns food and toppings
-     */
+
 //    @Override
 //    public String toString() {
-//        return ("The food selection is " + foodPick + " with " + toppingsPick);
+//
 //    }
 
     /**
