@@ -15,6 +15,6 @@ public class FreshFoodFactory implements MealFactory {
 			default:
 				throw new Exception("Unknown food type");
 		}
-		return new Grinder();
+		return food;
 	}
 }

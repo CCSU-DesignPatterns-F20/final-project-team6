@@ -21,10 +21,8 @@ public class Main {
         OrderingStrategy strategy;
         if(selection ==1){
              strategy = new InPerson();
-//            ip.orderFood();
         }else{
             strategy = new ByPhone();
-//            bp.orderFood();
         }
         Customer customer= new Customer(name, strategy);
 
