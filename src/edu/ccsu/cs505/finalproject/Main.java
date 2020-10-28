@@ -14,17 +14,11 @@ public class Main {
         System.out.println("Hello, what is your name?");
         String name = scanner.nextLine();
 
-        Customer customer= new Customer(name);
-
         System.out.println("How will you be ordering today? \n Type 1 for in person. \n Type 2 for by phone.");
         int selection = scanner.nextInt();
 
-        if(selection ==1){
-            InPerson ip = new InPerson(customer);
-            ip.orderFood();
-        }else{
-            ByPhone bp = new ByPhone(customer);
-            bp.orderFood();
-        }
+
+        Customer customer= new Customer(name, selection);
+        customer.orderFood();
     }
 }

@@ -7,12 +7,6 @@ import java.util.Scanner;
 public class ByPhone implements OrderingStrategy {
 
 
-    Customer C;
-
-    public ByPhone(Customer customer) {
-        C=customer;
-    }
-
 
     /**
      * answer phone, give menu, take order
@@ -20,7 +14,7 @@ public class ByPhone implements OrderingStrategy {
     @Override
     public void orderFood() {
         System.out.println("phone rings");
-        System.out.println("Hello " + C.name + " thank you for calling our restaurant. Here are the items we have today");
+        System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
 
         Menu.showMenu();
         Cashier cashier=new Cashier();
