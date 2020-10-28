@@ -71,12 +71,11 @@ public class Cashier {
     }
 
     @Override
-    @Override
     public String toString() {
         return ("Food picked " + foodPick+ " with toppings " + toppingsPick);
     }
 
 }
-class test2{
-    main String void
-}
+//class test2{
+//    main String void
+//}
