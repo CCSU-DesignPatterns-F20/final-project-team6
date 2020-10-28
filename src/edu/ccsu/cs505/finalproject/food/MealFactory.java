@@ -1,5 +1,5 @@
 package edu.ccsu.cs505.finalproject.food;
 
 public interface MealFactory {
-	public Food makeFood();
+	public Food makeFood(String type) throws Exception;
 }

@@ -12,7 +12,7 @@ public class ByPhone implements OrderingStrategy {
      * answer phone, give menu, take order
      */
     @Override
-    public void orderFood() {
+    public void orderFood() throws Exception {
         System.out.println("phone rings");
         System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
 
