@@ -3,19 +3,13 @@ import java.util.ArrayList;
 
 public class InPerson implements OrderingStrategy {
 
-    Customer C;
-
-    public InPerson(Customer customer) {
-        C=customer;
-    }
-
     /**
      * food selection will be sent to cashier
      */
     @Override
     public void orderFood() {
 
-        System.out.println("Hello " + C.name + " thank you for coming to our restaurant. Here are the items we have today");
+        System.out.println("Hello thank you for coming to our restaurant. Here are the items we have today");
         Menu.showMenu();
         Cashier cashier=new Cashier();
         cashier.processOrder();
