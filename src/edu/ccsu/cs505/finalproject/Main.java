@@ -3,6 +3,7 @@ package edu.ccsu.cs505.finalproject;
 import edu.ccsu.cs505.finalproject.processing.ByPhone;
 import edu.ccsu.cs505.finalproject.processing.Customer;
 import edu.ccsu.cs505.finalproject.processing.InPerson;
+import edu.ccsu.cs505.finalproject.processing.OrderingStrategy;
 
 import java.util.Scanner;
 
@@ -17,8 +18,15 @@ public class Main {
         System.out.println("How will you be ordering today? \n Type 1 for in person. \n Type 2 for by phone.");
         int selection = scanner.nextInt();
 
-
-        Customer customer= new Customer(name, selection);
+        OrderingStrategy strategy;
+        if(selection ==1){
+             strategy = new InPerson();
+//            ip.orderFood();
+        }else{
+            strategy = new ByPhone();
+//            bp.orderFood();
+        }
+        Customer customer= new Customer(name, strategy);
         customer.orderFood();
     }
 }

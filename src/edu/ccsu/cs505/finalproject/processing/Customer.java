@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Customer {
 
     String name="";
-    int strategy;
-    public Customer(String firstName, int s){
+    OrderingStrategy strategy;
+    public Customer(String firstName, OrderingStrategy s){
         name=firstName;
         strategy=s;
     }
@@ -13,14 +13,8 @@ public class Customer {
 
     public void orderFood() {
 
+    strategy.orderFood();
 
-        if(strategy ==1){
-            InPerson ip = new InPerson();
-            ip.orderFood();
-        }else{
-            ByPhone bp = new ByPhone();
-            bp.orderFood();
-        }
     }
 }
 

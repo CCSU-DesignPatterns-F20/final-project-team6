@@ -2,6 +2,8 @@ package edu.ccsu.cs505.finalproject.processing;
 
 import edu.ccsu.cs505.finalproject.food.Food;
 
+import java.util.List;
+
 public class Chef {
 	// TODO:
 //	CookingStrategy strategy;
@@ -10,6 +12,17 @@ public class Chef {
 
 	public Chef(String name){
 		this.name = name;
+	}
+
+	/**
+	 *
+	 * @param foodType type of food to cook, pizza or grinder
+	 * @param toppings toppings picked by customer
+	 */
+	public void getOrder(Food foodType, List<String> toppings) throws InterruptedException {
+		System.out.println("Chef " + name + " receives order");
+//		cook food
+		this.cook(foodType);
 	}
 
 	@Override
@@ -29,9 +42,9 @@ public class Chef {
 
 	/**
 	 * @param item to cook
-	 * @return cooked item
+	 *
 	 */
-	public Food cook(Food item){
-		return item;
-	}
+	private void cook(Food item) throws InterruptedException {
+		item.prepare();
+	};
 }

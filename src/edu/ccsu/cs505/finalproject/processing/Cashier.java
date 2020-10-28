@@ -55,5 +55,11 @@ public class Cashier {
         System.out.println("So you'll have a " + foodPick + " with " + toppingsPick);
 //        send to cashregister
 //        send to cook
+        Chef chef=new Chef("Bobby Flay");
+        try {
+            chef.getOrder(foodPick, toppingsPick);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
