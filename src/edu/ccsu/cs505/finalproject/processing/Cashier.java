@@ -66,17 +66,14 @@ public class Cashier {
                 e.printStackTrace();
             }
     }
-    private void processTransaction(){
-//        send to cash register
-    }
+//    private void processTransaction(){
+////        send to cash register
+//    }
 
-    @Override
+
     @Override
     public String toString() {
         return ("Food picked " + foodPick+ " with toppings " + toppingsPick);
     }
 
-}
-class test2{
-    main String void
 }

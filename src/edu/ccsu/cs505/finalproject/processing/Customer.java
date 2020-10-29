@@ -1,5 +1,4 @@
 package edu.ccsu.cs505.finalproject.processing;
-import java.util.Scanner;
 
 public class Customer {
 
@@ -57,14 +56,14 @@ public class Customer {
     }
 }
 
-class test{
-    public static void main(String []args){
-        Customer customer=new Customer("Kelly", new InPerson());
-        Customer customer2=new Customer("Kelly", new InPerson());
-        System.out.println(customer.toString());
-        System.out.println(customer.hashCode());
-        System.out.println(customer2.toString());
-        System.out.println(customer2.hashCode());
-        System.out.println(customer2.equals(customer));
-    }
-}
+//class test{
+//    public static void main(String []args){
+//        Customer customer=new Customer("Kelly", new InPerson());
+//        Customer customer2=new Customer("Kelly", new InPerson());
+//        System.out.println(customer.toString());
+//        System.out.println(customer.hashCode());
+//        System.out.println(customer2.toString());
+//        System.out.println(customer2.hashCode());
+//        System.out.println(customer2.equals(customer));
+//    }
+//}
