@@ -1,9 +1,9 @@
 package edu.ccsu.cs505.finalproject.processing;
 
 import edu.ccsu.cs505.finalproject.food.Food;
-import edu.ccsu.cs505.finalproject.food.GrinderFactory;
+import edu.ccsu.cs505.finalproject.food.FreshFoodFactory;
 import edu.ccsu.cs505.finalproject.food.MealFactory;
-import edu.ccsu.cs505.finalproject.food.PizzaFactory;
+import edu.ccsu.cs505.finalproject.food.FrozenFoodFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,19 +18,18 @@ public class Cashier {
     /**
      * cashier takes order from customer, assigns to variables, sends to cash register then to the chef
      */
-    public void processOrder() {
+    public void processOrder() throws Exception {
         System.out.println("Which number would you like to order?");
         Scanner scanner = new Scanner(System.in);
+        MealFactory foodFactory = new FreshFoodFactory();
 
         int pick = scanner.nextInt();
 //        String topping = scanner.hasNext()
         boolean keepGoing = true;
         if (pick == 1) {
-            foodFactory = new PizzaFactory();
-            foodPick = foodFactory.makeFood();
+            foodPick = foodFactory.makeFood("pizza");
         }else {
-            foodFactory = new GrinderFactory();
-            foodPick = foodFactory.makeFood();
+            foodPick = foodFactory.makeFood("grinder");
         }
             System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type q to finish");
             String topping = scanner.nextLine();

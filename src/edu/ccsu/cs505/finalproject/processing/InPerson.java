@@ -6,7 +6,7 @@ public class InPerson implements OrderingStrategy {
      * food selection will be sent to cashier
      */
     @Override
-    public void orderFood() {
+    public void orderFood() throws Exception {
 
         System.out.println("Hello thank you for coming to our restaurant. Here are the items we have today");
         Menu.showMenu();

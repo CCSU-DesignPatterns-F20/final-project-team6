@@ -27,6 +27,12 @@ public class Main {
 //            bp.orderFood();
         }
         Customer customer= new Customer(name, strategy);
-        customer.orderFood();
+
+        try{
+            customer.orderFood();
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

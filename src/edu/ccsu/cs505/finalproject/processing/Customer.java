@@ -18,7 +18,7 @@ public class Customer {
     /**
      * order food based on strategy selected
      */
-    public void orderFood() { strategy.orderFood();}
+    public void orderFood() throws Exception { strategy.orderFood();}
 
     /**
      *
