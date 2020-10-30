@@ -1,5 +1,4 @@
 package edu.ccsu.cs505.finalproject.processing;
-import java.util.ArrayList;
 
 public class InPerson implements OrderingStrategy {
 
@@ -15,27 +14,25 @@ public class InPerson implements OrderingStrategy {
         cashier.processOrder();
     }
 
-
-//    @Override
-//    public String toString() {
-//
-//    }
+    /**
+     *
+     * @return class name
+     */
+    @Override
+    public String toString() {
+        return this.getClass().getName();
+    }
 
     /**
      *
      * @param x compare object x to this object
      * @return boolean response
      */
-//    @Override
-//    public boolean equals (Object x)
-//    {
-//        if(!(x instanceof InPerson)) { return false;}
-//        else if(x == this) { return true;}
-//        else {
-//            InPerson in = (InPerson) x;
-//            return (in.foodPick.equals(this.foodPick)) && (in.toppingsPick.equals(this.toppingsPick));
-//        }
-//    }
+    @Override
+    public boolean equals (Object x)
+    {
+        if(x == this) { return true;} else { return false;}
+    }
 
     /**
      *
@@ -48,3 +45,10 @@ public class InPerson implements OrderingStrategy {
         return 0;
     }
 }
+
+class test15{
+    public static void main(String[] args){
+        InPerson ip = new InPerson();
+        ip.toString();
+    }
+        }

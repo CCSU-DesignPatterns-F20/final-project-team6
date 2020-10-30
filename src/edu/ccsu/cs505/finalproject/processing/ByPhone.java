@@ -1,9 +1,5 @@
 package edu.ccsu.cs505.finalproject.processing;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class ByPhone implements OrderingStrategy {
 
 
@@ -15,7 +11,6 @@ public class ByPhone implements OrderingStrategy {
     public void orderFood() {
         System.out.println("phone rings");
         System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
-
         Menu.showMenu();
         Cashier cashier=new Cashier();
         cashier.processOrder();
@@ -23,28 +18,19 @@ public class ByPhone implements OrderingStrategy {
 
     /**
      *
-     * @return returns food and toppings
+     * @return returns class name
      */
-//    @Override
-//    public String toString() {
-//        return ("The food selection is " + foodPick + " with " + toppingsPick);
-//    }
+    @Override
+    public String toString() { return this.getClass().getName(); }
 
     /**
      *
      * @param x compare object x to this object
      * @return boolean response
      */
-//    @Override
-//    public boolean equals (Object x)
-//    {
-//        if(!(x instanceof InPerson)) { return false;}
-//        else if(x == this) { return true;}
-//        else {
-//            InPerson in = (InPerson) x;
-//            return (in.foodPick.equals(this.foodPick)) && (in.toppingsPick.equals(this.toppingsPick));
-//        }
-//    }
+    @Override
+    public boolean equals (Object x)
+    { if(x == this) { return true;} else { return false;} }
 
     /**
      *

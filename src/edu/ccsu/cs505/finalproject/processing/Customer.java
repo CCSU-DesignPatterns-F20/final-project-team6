@@ -2,8 +2,8 @@ package edu.ccsu.cs505.finalproject.processing;
 
 public class Customer {
 
-    String name="";
-    OrderingStrategy strategy;
+    private String name="";
+    private OrderingStrategy strategy;
 
     /**
      *
@@ -26,7 +26,7 @@ public class Customer {
      */
     @Override
         public String toString() {
-        return ("Customer's name: " + name + ". They are is ordering " + strategy);
+        return ("Customer's name: " + name + ". They are ordering " + strategy);
     }
 
     /**

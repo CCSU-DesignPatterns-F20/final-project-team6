@@ -16,7 +16,7 @@ public class Cashier {
     MealFactory foodFactory;
 
     /**
-     * cashier takes order from customer, sends to cash register then to the chef
+     * cashier takes order from customer, assigns to variables, sends to cash register then to the chef
      */
     public void processOrder() {
         System.out.println("Which number would you like to order?");
@@ -28,20 +28,11 @@ public class Cashier {
         if (pick == 1) {
             foodFactory = new PizzaFactory();
             foodPick = foodFactory.makeFood();
-
-            System.out.println("Which topping would you like on your pizza? Enter one at a time.Type q to finish");
-            String topping = scanner.nextLine();
-            while (keepGoing) {
-                toppingsPick.add(topping);
-                topping = scanner.nextLine();
-                if (topping.equals("q")) {
-                    keepGoing = false;
-                }
-            }
-        } else {
+        }else {
             foodFactory = new GrinderFactory();
             foodPick = foodFactory.makeFood();
-            System.out.println("Which topping would you like on your grinder? Enter one at a time.Type q to finish");
+        }
+            System.out.println("Which topping would you like on your "+ foodPick "? Enter one at a time.Type q to finish");
             String topping = scanner.nextLine();
             while (keepGoing) {
                 toppingsPick.add(topping);
@@ -49,15 +40,16 @@ public class Cashier {
                 if (topping.equals("q")) {
                     keepGoing = false;
                 }
-
-
             }
-        }
         System.out.println("So you'll have a " + foodPick + " with " + toppingsPick+ "? Let me enter that into the cash register");
 //        send to cashregister
         System.out.println("Sending to the chef now");
         this.sendToChef();
     }
+
+    /**
+     * private class to create chef and send the order to cook
+     */
         private void sendToChef(){
             Chef chef=new Chef("Bobby Flay");
             try {
@@ -66,14 +58,45 @@ public class Cashier {
                 e.printStackTrace();
             }
     }
-//    private void processTransaction(){
-////        send to cash register
-//    }
 
+    /**
+     * private class to process transaction in the cash register
+     */
+    private void processTransaction(){
+//        send to cash register
+    }
 
+    /**
+     *
+     * @return the food item and toppings selected
+     */
     @Override
     public String toString() {
         return ("Food picked " + foodPick+ " with toppings " + toppingsPick);
     }
 
+    /**
+     *
+     * @return hashcode based on adding the hashcode of both the food item and toppings
+     */
+    @Override
+    public int hashCode() {
+        return foodPick.hashCode() + toppingsPick.hashCode();
+    }
+
+    /**
+     *
+     * @param x
+     * @return find out if one object equals this object based on food item and toppings
+     */
+    public boolean equals (Object x)
+    {
+        if(!(x instanceof Customer))
+        { return false; }
+        else if(x == this)
+        { return true; }
+        else {
+            Cashier c= (Cashier) x;
+            return (this.foodPick.equals(c.foodPick) && this.toppingsPick.equals(c.toppingsPick)); }
+    }
 }
