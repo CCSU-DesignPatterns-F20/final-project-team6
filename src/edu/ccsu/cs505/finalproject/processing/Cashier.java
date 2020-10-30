@@ -32,7 +32,7 @@ public class Cashier {
             foodFactory = new GrinderFactory();
             foodPick = foodFactory.makeFood();
         }
-            System.out.println("Which topping would you like on your "+ foodPick "? Enter one at a time.Type q to finish");
+            System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type q to finish");
             String topping = scanner.nextLine();
             while (keepGoing) {
                 toppingsPick.add(topping);
