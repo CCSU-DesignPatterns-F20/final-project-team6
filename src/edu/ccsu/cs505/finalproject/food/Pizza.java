@@ -5,11 +5,6 @@ public class Pizza extends Food {
 	private String pizzaType;
 
 	@Override
-	public String toString() {
-		return "Pizza";
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		return super.equals(obj);
 	}

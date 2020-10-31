@@ -5,11 +5,6 @@ public class Grinder extends Food {
 	private String grinderType;
 
 	@Override
-	public String toString() {
-		return "Grinder";
-	}
-
-	@Override
 	public void prepare() {
 
 	}

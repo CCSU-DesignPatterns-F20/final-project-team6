@@ -17,10 +17,9 @@ public class Chef {
 
 	/**
 	 *
-	 * @param foodType type of food to cook, pizza or grinder
-	 * @param toppings toppings picked by customer
+	 * @param foodType type of food to cook, pizza or grinder with toppings
 	 */
-	public void getOrder(Food foodType, List<String> toppings) throws InterruptedException {
+	public void getOrder(Food foodType) throws InterruptedException {
 		System.out.println("Chef " + name + " receives order");
 //		cook food
 		this.cook(foodType);
@@ -32,7 +31,7 @@ public class Chef {
 		if (this == o) return true;
 		if (o == null || this.getClass() != o.getClass()) return false;
 		Chef chef = (Chef) o;
-		return this.name.equals(((Chef) o).name);
+		return this.name.equals(chef.name);
 	}
 
 	@Override
