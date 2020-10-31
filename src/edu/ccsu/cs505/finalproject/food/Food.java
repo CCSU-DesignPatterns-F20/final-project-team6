@@ -14,7 +14,6 @@ public abstract class Food {
 	}
 
 	public void prepare() throws InterruptedException {
-		gatherToppings();
 		placeToppings();
 		cook();
 		slice();
@@ -51,10 +50,6 @@ public abstract class Food {
 		}
 
 		return result.toString();
-	}
-
-	private void gatherToppings() {
-
 	}
 
 	private void placeToppings() {
