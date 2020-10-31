@@ -61,7 +61,7 @@ public abstract class Food {
 
 	}
 
-	abstract void cook();
+	abstract void cook() throws InterruptedException;
 
-	abstract void slice();
+	abstract void slice() throws InterruptedException;
 }

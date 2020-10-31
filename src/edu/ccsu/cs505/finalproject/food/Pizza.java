@@ -28,13 +28,18 @@ public class Pizza extends Food {
 	}
 
 	@Override
-	void cook() {
+	void cook() throws InterruptedException {
 		System.out.println("Pizza was placed in the wooden oven and is currently baking.");
+		Thread.sleep(6000);
+		System.out.println("Pizza is done baking.");
+		Thread.sleep(3000);
 	}
 
 	@Override
-	void slice() {
-		System.out.println("Slicing up the pizza using the pizza cutter");
+	void slice() throws InterruptedException {
+		System.out.println("Slicing up the pizza using the pizza cutter.");
+		Thread.sleep(3000);
+		System.out.println("Pizza is ready to be Served!");
 	}
 
 }
