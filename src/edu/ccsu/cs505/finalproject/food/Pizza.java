@@ -29,7 +29,7 @@ public class Pizza extends Food {
 	 * @throws InterruptedException
 	 */
 	@Override
-	public void prepare() throws InterruptedException {
+	public void setup() throws InterruptedException {
 		System.out.println("Adding flour to the table.");
 		Thread.sleep(3000);
 		System.out.println("Using the rolling pin to roll out the dough into shape.");
@@ -38,7 +38,6 @@ public class Pizza extends Food {
 		Thread.sleep(3000);
 		System.out.println("Sprinkling cheese over the cheese.");
 		Thread.sleep(3000);
-		super.prepare();
 	}
 
 	/**

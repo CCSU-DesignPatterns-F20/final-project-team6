@@ -24,10 +24,17 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	public void prepare() throws InterruptedException {
+		setup();
 		placeToppings();
 		cook();
 		slice();
 	}
+
+	/**
+	 * Abstract hook method for Template Pattern, it needs to be implemented by all food items
+	 * Initial steps before preparing food
+	 */
+	protected abstract void setup() throws InterruptedException;
 
 	/**
 	 * @param topping list of food toppings as Strings
@@ -84,13 +91,15 @@ public abstract class Food {
 	}
 
 	/**
-	 * Template Patterns hook method used in prepare() method
+	 * Template Pattern's hook method used in prepare() method
+	 * it needs to be implemented by all food items
 	 * @throws InterruptedException
 	 */
 	abstract void cook() throws InterruptedException;
 
 	/**
-	 * Template Patterns hook method used in prepare() method
+	 * Template Pattern's hook method used in prepare() method
+	 * it needs to be implemented by all food items
 	 * @throws InterruptedException
 	 */
 	abstract void slice() throws InterruptedException;
