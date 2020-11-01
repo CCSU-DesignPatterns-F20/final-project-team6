@@ -1,11 +1,16 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+
+/**
+ * ByPhone is one of the concrete classes that implements orderingstrategy. It is part of the
+ * strategy design pattern. Inperson simulates a customer ordering food in person. When order
+ * food is called a menu will be shown and a cashier object created. cashier.processorder is
+ * called to get the customer's order.
+ */
 public class ByPhone implements OrderingStrategy {
 
-
-
     /**
-     * answer phone, give menu, take order
+     * greet customer, show menu, have cashier take order
      */
     @Override
     public void orderFood() throws Exception {
@@ -31,15 +36,4 @@ public class ByPhone implements OrderingStrategy {
     @Override
     public boolean equals (Object x)
     { if(x == this) { return true;} else { return false;} }
-
-    /**
-     *
-     * @return hashcode
-     */
-    @Override
-    public int hashCode()
-    {
-//        will add proper hashcode
-        return 0;
-    }
 }
