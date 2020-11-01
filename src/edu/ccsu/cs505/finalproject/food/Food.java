@@ -76,8 +76,8 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	private void placeToppings() throws InterruptedException {
-		for ( String toppping : toppings) {
-			System.out.println(("Adding " + toppping));
+		for ( String topping : toppings) {
+			System.out.println(("Adding " + topping));
 			Thread.sleep(3000);
 
 		}
