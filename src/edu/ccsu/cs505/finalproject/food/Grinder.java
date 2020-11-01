@@ -11,7 +11,13 @@ public class Grinder extends Food {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		if(!(obj instanceof Grinder))
+		{ return false; }
+		else if(obj == this)
+		{ return true; }
+		else {
+			Grinder g = (Grinder) obj;
+			return (this.getToppings().equals(((Grinder) obj).getToppings()));}
 	}
 
 	/**
@@ -19,9 +25,8 @@ public class Grinder extends Food {
 	 */
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		return super.getToppings().hashCode();
 	}
-
 
 	/**
 	 * @throws InterruptedException
