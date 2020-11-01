@@ -12,7 +12,13 @@ public class Pizza extends Food {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		if(!(obj instanceof Pizza))
+		{ return false; }
+		else if(obj == this)
+		{ return true; }
+		else {
+			Pizza p = (Pizza) obj;
+			return (this.getToppings().equals(((Pizza) obj).getToppings()));}
 	}
 
 
@@ -21,7 +27,7 @@ public class Pizza extends Food {
 	 */
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		return super.getToppings().hashCode();
 	}
 
 
