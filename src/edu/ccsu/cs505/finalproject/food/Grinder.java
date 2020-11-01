@@ -12,8 +12,6 @@ public class Grinder extends Food {
 		return super.hashCode();
 	}
 
-	@Override
-	public String toString() { return "Grinder"; }
 
 	@Override
 	public void prepare() throws InterruptedException {

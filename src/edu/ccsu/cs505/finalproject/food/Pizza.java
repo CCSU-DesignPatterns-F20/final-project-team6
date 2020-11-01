@@ -12,8 +12,6 @@ public class Pizza extends Food {
 		return super.hashCode();
 	}
 
-	@Override
-	public String toString() { return "Pizza"; }
 
 	@Override
 	public void prepare() throws InterruptedException {
