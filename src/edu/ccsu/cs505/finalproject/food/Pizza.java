@@ -2,7 +2,7 @@ package edu.ccsu.cs505.finalproject.food;
 
 /**
  * Pizza, extends abstract Food
- *
+ * Part of Abstract Factory pattern
  */
 public class Pizza extends Food {
 

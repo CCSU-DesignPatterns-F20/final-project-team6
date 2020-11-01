@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Defines abstract Food with toppings
+ * Part of Abstract Factory pattern
  */
 public abstract class Food {
 

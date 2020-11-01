@@ -2,6 +2,7 @@ package edu.ccsu.cs505.finalproject.food;
 
 /**
  * Grinder, extends abstract Food
+ * Part of Abstract Factory pattern
  */
 public class Grinder extends Food {
 
