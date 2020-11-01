@@ -47,8 +47,7 @@ public class Cashier {
         System.out.println("So you'll have a " + foodPick + "? Let me enter that into the cash register");
 //        send to cashregister
         // TODO: send the item price to cash register
-        CashRegister cashRegister = CashRegister.getInstance();
-        cashRegister.updateBalance(0.0); // ** no item price yet
+        processTransaction(0.0); // ** no item price yet
 
         System.out.println("Sending to the chef now");
         this.sendToChef();
@@ -68,10 +67,12 @@ public class Cashier {
 
     /**
      * private class to process transaction in the cash register
+     * @param transactionAmount to adjust cash register balance
      */
-    private void processTransaction(){
+    private void processTransaction(Double transactionAmount){
 //        send to cash register
         CashRegister cashRegister = CashRegister.getInstance();
+        cashRegister.updateBalance(transactionAmount);
     }
 
     /**
