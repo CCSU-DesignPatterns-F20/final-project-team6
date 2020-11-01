@@ -31,7 +31,6 @@ public class Grinder extends Food {
 	/**
 	 * @throws InterruptedException
 	 */
-	@Override
 	protected void setup() throws InterruptedException {
 		System.out.println("Getting the bread out of the box and setting it on the cutting board.");
 		Thread.sleep(3000);
