@@ -1,7 +1,7 @@
 package edu.ccsu.cs505.finalproject.processing;
 import edu.ccsu.cs505.finalproject.food.Food;
 import edu.ccsu.cs505.finalproject.food.FreshFoodFactory;
-import edu.ccsu.cs505.finalproject.food.MealFactory;
+import edu.ccsu.cs505.finalproject.food.FoodFactory;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Cashier {
 
     Food foodPick;
-    MealFactory foodFactory;
+    FoodFactory foodFactory;
 
     /**
      * cashier takes order from customer, assigns to variables, sends to cash register then to the chef
@@ -24,7 +24,7 @@ public class Cashier {
     public void processOrder() throws Exception {
         System.out.println("Which number would you like to order?");
         Scanner scanner = new Scanner(System.in);
-        MealFactory foodFactory = new FreshFoodFactory();
+        FoodFactory foodFactory = new FreshFoodFactory();
 
         int pick = scanner.nextInt();
         if (pick == 1) {

@@ -3,7 +3,7 @@ package edu.ccsu.cs505.finalproject.food;
 /**
  * Part of Abstract Factory pattern
  */
-public class FreshFoodFactory implements MealFactory {
+public class FreshFoodFactory implements FoodFactory {
 	/**
 	 * Produces different types of fresh Food
 	 * @param type String type of food, "pizza" or "grinder"

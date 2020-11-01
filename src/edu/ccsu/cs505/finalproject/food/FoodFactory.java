@@ -3,7 +3,7 @@ package edu.ccsu.cs505.finalproject.food;
 /**
  * Part of Abstract Factory pattern, interface implemented by all Food factories
  */
-public interface MealFactory {
+public interface FoodFactory {
 
 	/**
 	 * Produces different types of Food based on input

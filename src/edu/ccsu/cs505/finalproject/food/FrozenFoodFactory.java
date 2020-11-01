@@ -3,7 +3,7 @@ package edu.ccsu.cs505.finalproject.food;
 /**
  * Part of Abstract Factory pattern, produces frozen Food
  */
-public class FrozenFoodFactory implements MealFactory {
+public class FrozenFoodFactory implements FoodFactory {
 	private String type;
 
 	/**
