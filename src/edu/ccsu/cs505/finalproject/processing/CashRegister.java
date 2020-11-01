@@ -33,6 +33,9 @@ public class CashRegister {
         this.balance += adjustment;
     }
 
+    /**
+     * @param balance sets cash register balance to specified amount
+     */
     public void setBalance(Double balance)
     {
         this.balance = balance;

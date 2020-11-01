@@ -54,7 +54,7 @@ public class Cashier {
     }
 
     /**
-     * private class to create chef and send the order to cook
+     * private method to create chef and send the order to cook
      */
         private void sendToChef(){
             Chef chef=new Chef("Bobby Flay");

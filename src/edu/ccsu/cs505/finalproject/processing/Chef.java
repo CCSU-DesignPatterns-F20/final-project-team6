@@ -3,8 +3,9 @@ package edu.ccsu.cs505.finalproject.processing;
 import edu.ccsu.cs505.finalproject.food.Food;
 
 
-import java.util.List;
-
+/**
+ * Collects order items and cooks them
+ */
 public class Chef {
 	// TODO:
 //	CookingStrategy strategy;
@@ -16,7 +17,6 @@ public class Chef {
 	}
 
 	/**
-	 *
 	 * @param foodType type of food to cook, pizza or grinder with toppings
 	 */
 	public void getOrder(Food foodType) throws InterruptedException {

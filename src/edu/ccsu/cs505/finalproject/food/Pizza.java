@@ -32,6 +32,7 @@ public class Pizza extends Food {
 
 
 	/**
+	 * Template Pattern, implementation of a hook method
 	 * @throws InterruptedException
 	 */
 	protected void setup() throws InterruptedException {

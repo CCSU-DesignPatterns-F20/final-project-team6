@@ -2,6 +2,9 @@ package edu.ccsu.cs505.finalproject.processing;
 
 import java.util.Scanner;
 
+/**
+ * Prints current menu for the customer to choose from
+ */
 public class Menu {
     public static void showMenu(){
         System.out.println("1. Pizza \n toppings available- pepperoni, mushrooms, sausage, peppers.");
