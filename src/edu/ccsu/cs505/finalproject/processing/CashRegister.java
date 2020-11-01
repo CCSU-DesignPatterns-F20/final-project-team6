@@ -6,7 +6,7 @@ package edu.ccsu.cs505.finalproject.processing;
 public class CashRegister {
 //    only instance
     private static CashRegister CR = null;
-    private Double balance;
+    private Double balance = 0.0;
 
     /**
      * private constructor to prevent more than one instance
@@ -23,5 +23,18 @@ public class CashRegister {
         if (CR == null){
             CR = new CashRegister();}
         return CR;
+    }
+
+    /**
+     * @param adjustment updates current cash register balance
+     */
+    public void updateBalance(Double adjustment)
+    {
+        this.balance += adjustment;
+    }
+
+    public void setBalance(Double balance)
+    {
+        this.balance = balance;
     }
 }
