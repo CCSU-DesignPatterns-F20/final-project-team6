@@ -1,5 +1,13 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+/**
+ * This Customer class represents the customer in the restaurant simulator. It is the "client"
+ * part of the strategy design pattern. Customer is given two attributes, a name
+ * and an ordering strategy.
+ *
+ * orderfood method will start the ordering process by sending the customer over to the strategy
+ * the customer has selected.
+ */
 public class Customer {
 
     private String name="";
@@ -56,14 +64,3 @@ public class Customer {
     }
 }
 
-//class test{
-//    public static void main(String []args){
-//        Customer customer=new Customer("Kelly", new InPerson());
-//        Customer customer2=new Customer("Kelly", new InPerson());
-//        System.out.println(customer.toString());
-//        System.out.println(customer.hashCode());
-//        System.out.println(customer2.toString());
-//        System.out.println(customer2.hashCode());
-//        System.out.println(customer2.equals(customer));
-//    }
-//}

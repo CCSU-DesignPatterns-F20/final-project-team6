@@ -6,6 +6,7 @@ package edu.ccsu.cs505.finalproject.processing;
 public class CashRegister {
 //    only instance
     private static CashRegister CR = null;
+    private Double balance;
 
     /**
      * private constructor to prevent more than one instance

@@ -1,11 +1,18 @@
 package edu.ccsu.cs505.finalproject.processing;
-
 import edu.ccsu.cs505.finalproject.food.Food;
 import edu.ccsu.cs505.finalproject.food.FreshFoodFactory;
 import edu.ccsu.cs505.finalproject.food.MealFactory;
 
 import java.util.Scanner;
 
+
+/**
+ * Cashier will handle taking the order from the customer with the processOrder method.
+ * Within processOrder, when the order has been selected, the processTransaction method will be
+ * called, which will interact with the singleton cash register. Once that is completed,
+ * sendToChef will be called, which creates a chef object before sending the chef the food
+ * order
+ */
 public class Cashier {
 
     Food foodPick;
