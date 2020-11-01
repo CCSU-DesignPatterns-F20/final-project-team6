@@ -52,8 +52,12 @@ public abstract class Food {
 		return result.toString();
 	}
 
-	private void placeToppings() {
+	private void placeToppings() throws InterruptedException {
+		for ( String toppping : toppings) {
+			System.out.println(("Adding " + toppping));
+			Thread.sleep(3000);
 
+		}
 	}
 
 	abstract void cook() throws InterruptedException;
