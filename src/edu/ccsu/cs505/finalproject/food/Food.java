@@ -31,12 +31,6 @@ public abstract class Food {
 	}
 
 	/**
-	 * Abstract hook method for Template Pattern, it needs to be implemented by all food items
-	 * Initial steps before preparing food
-	 */
-	protected abstract void setup() throws InterruptedException;
-
-	/**
 	 * @param topping list of food toppings as Strings
 	 */
 	public void addTopping(String topping){
@@ -49,6 +43,18 @@ public abstract class Food {
 	public List<String> getToppings()
 	{
 		return this.toppings;
+	}
+
+	/**
+	 * Prints each topping as it is being prepared
+	 * @throws InterruptedException
+	 */
+	private void placeToppings() throws InterruptedException {
+		for ( String topping : toppings) {
+			System.out.println(("Adding " + topping));
+			Thread.sleep(3000);
+
+		}
 	}
 
 	/**
@@ -78,17 +84,12 @@ public abstract class Food {
 		return result.toString();
 	}
 
-	/**
-	 * Prints each topping as it is being prepared
-	 * @throws InterruptedException
-	 */
-	private void placeToppings() throws InterruptedException {
-		for ( String topping : toppings) {
-			System.out.println(("Adding " + topping));
-			Thread.sleep(3000);
 
-		}
-	}
+	/**
+	 * Abstract hook method for Template Pattern, it needs to be implemented by all food items
+	 * Initial steps before preparing food
+	 */
+	protected abstract void setup() throws InterruptedException;
 
 	/**
 	 * Template Pattern's hook method used in prepare() method

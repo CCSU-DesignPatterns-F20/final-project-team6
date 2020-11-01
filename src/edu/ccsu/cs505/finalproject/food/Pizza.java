@@ -34,7 +34,6 @@ public class Pizza extends Food {
 	/**
 	 * @throws InterruptedException
 	 */
-	@Override
 	public void setup() throws InterruptedException {
 		System.out.println("Adding flour to the table.");
 		Thread.sleep(3000);
