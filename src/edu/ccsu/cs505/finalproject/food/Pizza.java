@@ -1,18 +1,33 @@
 package edu.ccsu.cs505.finalproject.food;
 
+/**
+ * Pizza, extends abstract Food
+ *
+ */
 public class Pizza extends Food {
 
+	/**
+	 * @param obj Object to compare
+	 * @return true if equal, false otherwise
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		return super.equals(obj);
 	}
 
+
+	/**
+	 * @return int hashcode
+	 */
 	@Override
 	public int hashCode() {
 		return super.hashCode();
 	}
 
 
+	/**
+	 * @throws InterruptedException
+	 */
 	@Override
 	public void prepare() throws InterruptedException {
 		System.out.println("Adding flour to the table.");
@@ -26,6 +41,10 @@ public class Pizza extends Food {
 		super.prepare();
 	}
 
+	/**
+	 * Template Pattern, implementation of a hook method
+	 * @throws InterruptedException
+	 */
 	void cook() throws InterruptedException {
 		System.out.println("Pizza was placed in the wooden oven and is currently baking.");
 		Thread.sleep(6000);
@@ -33,6 +52,10 @@ public class Pizza extends Food {
 		Thread.sleep(3000);
 	}
 
+	/**
+	 * Template Pattern, implementation of a hook method
+	 * @throws InterruptedException
+	 */
 	void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
