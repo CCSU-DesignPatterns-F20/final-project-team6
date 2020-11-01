@@ -96,12 +96,12 @@ public abstract class Food {
 	 * it needs to be implemented by all food items
 	 * @throws InterruptedException
 	 */
-	abstract void cook() throws InterruptedException;
+	protected abstract void cook() throws InterruptedException;
 
 	/**
 	 * Template Pattern's hook method used in prepare() method
 	 * it needs to be implemented by all food items
 	 * @throws InterruptedException
 	 */
-	abstract void slice() throws InterruptedException;
+	protected abstract void slice() throws InterruptedException;
 }

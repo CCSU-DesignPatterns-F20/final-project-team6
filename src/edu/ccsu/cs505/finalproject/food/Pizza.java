@@ -34,7 +34,7 @@ public class Pizza extends Food {
 	/**
 	 * @throws InterruptedException
 	 */
-	public void setup() throws InterruptedException {
+	protected void setup() throws InterruptedException {
 		System.out.println("Adding flour to the table.");
 		Thread.sleep(3000);
 		System.out.println("Using the rolling pin to roll out the dough into shape.");
@@ -49,7 +49,7 @@ public class Pizza extends Food {
 	 * Template Pattern, implementation of a hook method
 	 * @throws InterruptedException
 	 */
-	void cook() throws InterruptedException {
+	protected void cook() throws InterruptedException {
 		System.out.println("Pizza was placed in the wooden oven and is currently baking.");
 		Thread.sleep(6000);
 		System.out.println("Pizza is done baking.");
@@ -60,7 +60,7 @@ public class Pizza extends Food {
 	 * Template Pattern, implementation of a hook method
 	 * @throws InterruptedException
 	 */
-	void slice() throws InterruptedException {
+	protected void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
 		System.out.println("Pizza is ready to be Served!");
