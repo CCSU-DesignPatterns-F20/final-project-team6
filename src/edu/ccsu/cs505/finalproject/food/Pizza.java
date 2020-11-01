@@ -2,8 +2,6 @@ package edu.ccsu.cs505.finalproject.food;
 
 public class Pizza extends Food {
 
-	private String pizzaType;
-
 	@Override
 	public boolean equals(Object obj) {
 		return super.equals(obj);
@@ -13,6 +11,9 @@ public class Pizza extends Food {
 	public int hashCode() {
 		return super.hashCode();
 	}
+
+	@Override
+	public String toString() { return "Pizza"; }
 
 	@Override
 	public void prepare() throws InterruptedException {
@@ -27,7 +28,6 @@ public class Pizza extends Food {
 		super.prepare();
 	}
 
-	@Override
 	void cook() throws InterruptedException {
 		System.out.println("Pizza was placed in the wooden oven and is currently baking.");
 		Thread.sleep(6000);
@@ -35,7 +35,6 @@ public class Pizza extends Food {
 		Thread.sleep(3000);
 	}
 
-	@Override
 	void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
