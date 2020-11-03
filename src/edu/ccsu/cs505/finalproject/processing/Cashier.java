@@ -58,6 +58,10 @@ public class Cashier {
      */
         private void sendToChef(){
             Chef chef=new Chef("Bobby Flay");
+
+//            attach chef observer to food
+
+            foodPick.attach(chef);
             try {
                 chef.getOrder(foodPick);
             } catch (InterruptedException e) {

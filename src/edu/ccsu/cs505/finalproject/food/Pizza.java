@@ -64,7 +64,10 @@ public class Pizza extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
-		System.out.println("Pizza is ready to be Served!");
+		String done="Pizza is ready";
+
+//		pizza is done so notify observers
+		notifyObservers(done);
 	}
 
 }

@@ -6,22 +6,25 @@ import edu.ccsu.cs505.finalproject.food.Food;
 /**
  * Collects order items and cooks them
  */
-public class Chef {
+public class Chef implements Observer {
 	// TODO:
 //	CookingStrategy strategy;
-
+	private String status;
 	String name;
-
 	public Chef(String name){
 		this.name = name;
 	}
+
+
 
 	/**
 	 * @param foodType type of food to cook, pizza or grinder with toppings
 	 */
 	public void getOrder(Food foodType) throws InterruptedException {
 		System.out.println("Chef " + name + " receives order");
-//		cook food
+
+//		set status to order received
+		status=foodType.getClass().getName()+"order received";
 		this.cook(foodType);
 	}
 
@@ -47,4 +50,10 @@ public class Chef {
 	private void cook(Food item) throws InterruptedException {
 		item.prepare();
 	};
+
+	@Override
+	public void update(String s) {
+		this.status=s;
+		System.out.println(s);
+	}
 }

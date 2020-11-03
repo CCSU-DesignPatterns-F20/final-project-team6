@@ -1,5 +1,7 @@
 package edu.ccsu.cs505.finalproject.food;
 
+import edu.ccsu.cs505.finalproject.processing.Observer;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 public abstract class Food {
 
 	private List<String> toppings;
+	private List<Observer> ob= new ArrayList();
 
 	/**
 	 * constructor
@@ -20,6 +23,30 @@ public abstract class Food {
 		this.toppings = new ArrayList<String>();
 	}
 
+	/**
+	 * method to add observer to the observer list for the observer pattern
+	 * @param o
+	 */
+	public void attach(Observer o){
+		ob.add(o);
+	}
+
+	/**
+	 * method to remove observer from observer list for the observer pattern
+	 * @param o
+	 */
+	public void detach(Observer o){
+		ob.remove(o);
+	}
+
+	/**
+	 * method to notify a change to all observers
+	 */
+	public void notifyObservers(String s){
+		for (Observer x: ob){
+			x.update(s);
+		}
+	}
 	/**
 	 * Template method for food preparation with hook methods
 	 * @throws InterruptedException
