@@ -47,10 +47,15 @@ public class Cashier {
         System.out.println("So you'll have a " + foodPick + "? Let me enter that into the cash register");
 //        send to cashregister
         // TODO: send the item price to cash register
-        processTransaction(0.0); // ** no item price yet
-
-        System.out.println("Sending to the chef now");
-        this.sendToChef();
+        if(processTransaction(0.0)) // ** no item price yet
+        {
+            System.out.println("Sending to the chef now");
+            this.sendToChef();
+        }
+        else
+        {
+            System.out.println("Transaction failed, please try again...");
+        }
     }
 
     /**
@@ -72,11 +77,21 @@ public class Cashier {
     /**
      * private class to process transaction in the cash register
      * @param transactionAmount to adjust cash register balance
+     * @return
      */
-    private void processTransaction(Double transactionAmount){
+    private boolean processTransaction(Double transactionAmount){
 //        send to cash register
         CashRegister cashRegister = CashRegister.getInstance();
-        cashRegister.updateBalance(transactionAmount);
+
+        if(!cashRegister.isPowered())
+        {
+            cashRegister.powerPress();
+        }
+        cashRegister.unlock("1234");
+
+        cashRegister.openDrawer();
+
+        return cashRegister.depositCash(transactionAmount);
     }
 
     /**
