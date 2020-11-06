@@ -41,6 +41,7 @@ public abstract class Food {
 
 	/**
 	 * method to notify a change to all observers
+	 * @param s return a message about the change
 	 */
 	public void notifyObservers(String s){
 		for (Observer x: ob){

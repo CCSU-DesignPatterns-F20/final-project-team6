@@ -4,11 +4,11 @@ import edu.ccsu.cs505.finalproject.food.Food;
 
 
 /**
- * Collects order items and cooks them
+ * Collects order items and cooks them. Implements the observer interface,
+ * chef is updated when food is ready
  */
 public class Chef implements Observer {
-	// TODO:
-//	CookingStrategy strategy;
+
 	private String status;
 	String name;
 	public Chef(String name){
@@ -51,6 +51,10 @@ public class Chef implements Observer {
 		item.prepare();
 	};
 
+	/**
+	 * Will be called when food is ready
+	 * @param s will return a message updating the status of the food
+	 */
 	@Override
 	public void update(String s) {
 		this.status=s;
