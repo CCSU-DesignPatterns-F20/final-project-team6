@@ -6,6 +6,9 @@ package edu.ccsu.cs505.finalproject.food;
  */
 public class Pizza extends Food {
 
+	public Pizza() {
+		this.cost = 10;
+	}
 	/**
 	 * @param obj Object to compare
 	 * @return true if equal, false otherwise

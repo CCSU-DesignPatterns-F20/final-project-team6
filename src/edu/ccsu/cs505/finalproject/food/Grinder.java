@@ -6,6 +6,10 @@ package edu.ccsu.cs505.finalproject.food;
  */
 public class Grinder extends Food {
 
+	public Grinder() {
+		this.cost = 5;
+	}
+
 	/**
 	 * @param obj Object to compare
 	 * @return true if equal, false otherwise

@@ -14,6 +14,7 @@ public abstract class Food {
 
 	private List<String> toppings;
 	private List<Observer> ob= new ArrayList();
+	protected double cost;
 
 	/**
 	 * constructor
@@ -22,6 +23,7 @@ public abstract class Food {
 	{
 		this.toppings = new ArrayList<String>();
 	}
+	public double getCost(){ return cost; }
 
 	/**
 	 * method to add observer to the observer list for the observer pattern

@@ -69,11 +69,10 @@ public class Menu<T extends Food> {
 
 			Grinder grinder = new Grinder();
 			grinder.addTopping("Lettuce");
-			grinder.addTopping("Onions");
 			grinder.addTopping("Ham");
 			grinder.addTopping("Turkey");
 			grinder.addTopping("Cheese");
-			grinder.addTopping("Cucumbers");
+
 
 			menu.addItem(grinder);
 
