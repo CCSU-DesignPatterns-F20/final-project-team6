@@ -134,3 +134,10 @@ public abstract class Food {
 	 */
 	protected abstract void slice() throws InterruptedException;
 }
+
+class test2{
+	public static void main(String[]args){
+		Food f=new Pizza();
+		f.addTopping("oijij");
+	}
+}

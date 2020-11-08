@@ -86,3 +86,11 @@ public class Menu<T extends Food> {
 		}
 	}
 }
+
+class test1 {
+	public static void main(String[] args) {
+		Menu<Food> m = new Menu.Builder().Build();
+		m.showMenu();
+	}
+}
+
