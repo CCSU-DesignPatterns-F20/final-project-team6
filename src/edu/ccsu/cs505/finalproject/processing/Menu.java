@@ -55,13 +55,6 @@ public class Menu<T extends Food> {
 		}
 	}
 
-	public void showMenu() {
-		int index = 1;
-		for (T food : this.items) {
-			System.out.printf("%d. %s\n", index++, food);
-		}
-	}
-
 	static class Builder {
 		Menu<Food> Build() {
 			Menu<Food> menu = new Menu<Food>();

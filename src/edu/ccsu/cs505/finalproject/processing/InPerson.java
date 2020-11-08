@@ -18,8 +18,16 @@ public class InPerson implements OrderingStrategy {
     public void orderFood() throws Exception {
 
         System.out.println("Hello thank you for coming to our restaurant. Here are the items we have today");
-        Menu<Food> menu = new Menu.Builder().Build();
-        menu.showMenu();
+
+        Menu<Food> m = new Menu.Builder().Build();
+        Iterator menuIterator = m.iterator();
+
+        int itemCount=1;
+        while (menuIterator.hasNext()) {
+            System.out.print(itemCount+" ");
+            System.out.println(menuIterator.next());
+            itemCount++;
+        }
         Cashier cashier = new Cashier();
         cashier.processOrder();
     }
