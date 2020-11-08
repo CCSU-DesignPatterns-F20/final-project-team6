@@ -5,14 +5,20 @@ import java.util.*;
 /**
  * Prints current menu for the customer to choose from
  */
-public class Menu<T> {
+public class Menu<String> {
 
         public Iterator iterator;
 
         //menu will be in array
-        List<T> menu = new ArrayList<T>();
-//        menu.add("Pizza");
+//        List<T> menu = new ArrayList<>();
+////        menu.add("Pizza");
+         List<String> menu;
 
+    public Menu () {
+        this.menu = new ArrayList<String>();
+//        String item= (String) "pizza";
+        this.menu.add((String)"Pizza");
+    }
 
     private class MenuIterator implements Iterator {
 
@@ -35,7 +41,7 @@ public class Menu<T> {
 
 
         @Override
-        public T next() {
+        public String next() {
 
             if(this.hasNext()){
                 return menu.get(index++);
@@ -53,6 +59,7 @@ public class Menu<T> {
 
 class test1{
     public static void main(String[] args){
-
+            Menu m=new Menu();
+            System.out.println(m.menu);
     }
         }
