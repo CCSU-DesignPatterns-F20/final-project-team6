@@ -1,55 +1,88 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+import edu.ccsu.cs505.finalproject.food.Food;
+import edu.ccsu.cs505.finalproject.food.Grinder;
+import edu.ccsu.cs505.finalproject.food.Pizza;
+
 import java.util.*;
 
 /**
  * Prints current menu for the customer to choose from
  */
-public class Menu {
+public class Menu<T extends Food> {
 
-        public Iterator iterator;
+	public Iterator iterator;
 
-        //menu will be in array
-        private List<String> menu;
+	//menu will be in array
+	List<T> items = new ArrayList<T>();
 
-        public Menu () {
-            this.menu = new ArrayList<String>();
-            this.menu.add("Pizza");
-        }
+	public Menu() {
 
-    private class MenuIterator implements Iterator {
+	}
 
-        int index;
+	public void addItem(T item) {
+		this.items.add(item);
+	}
 
-        @Override
-        public Boolean hasNext() {
+	private class MenuIterator implements Iterator {
 
-            if(index < menu.size()){
-                return true;
-            }
-            return false;
-        }
+		int index;
 
-        @Override
-        public void remove() {
+		@Override
+		public Boolean hasNext() {
 
-        }
+			if (index < items.size()) {
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public void remove() {
+
+		}
 
 
+		@Override
+		public T next() {
 
-        @Override
-        public String next() {
+			if (this.hasNext()) {
+				return items.get(index++);
+			}
+			return null;
+		}
+	}
 
-            if(this.hasNext()){
-                return menu.get(index++);
-            }
-            return null;
-        }
-    }
+	public void showMenu() {
+		int index = 1;
+		for (T food : this.items) {
+			System.out.printf("%d. %s\n", index++, food);
+		}
+	}
 
-    public static void showMenu(){
-        System.out.println("1. Pizza \n toppings available- pepperoni, mushrooms, sausage, peppers.");
-        System.out.println("2. Grinder \n toppings available- lettuce, onions, ham, turkey, cheese, cucumbers.");
-    }
+	static class Builder {
+		Menu<Food> Build() {
+			Menu<Food> menu = new Menu<Food>();
 
+			Pizza pizza = new Pizza();
+			pizza.addTopping("Pepperoni");
+			pizza.addTopping("Mushrooms");
+			pizza.addTopping("Sausage");
+			pizza.addTopping("Peppers");
+
+			menu.addItem(pizza);
+
+			Grinder grinder = new Grinder();
+			grinder.addTopping("Lettuce");
+			grinder.addTopping("Onions");
+			grinder.addTopping("Ham");
+			grinder.addTopping("Turkey");
+			grinder.addTopping("Cheese");
+			grinder.addTopping("Cucumbers");
+
+			menu.addItem(grinder);
+
+			return menu;
+		}
+	}
 }
