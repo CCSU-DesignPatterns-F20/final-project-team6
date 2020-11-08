@@ -19,7 +19,9 @@ public class Menu<T extends Food> {
 	public Menu() {
 
 	}
-
+    public Iterator iterator(){
+        return new MenuIterator();
+    }
 	public void addItem(T item) {
 		this.items.add(item);
 	}
@@ -88,9 +90,13 @@ public class Menu<T extends Food> {
 }
 
 class test1 {
-	public static void main(String[] args) {
-		Menu<Food> m = new Menu.Builder().Build();
-		m.showMenu();
-	}
-}
+    public static void main(String[] args) {
+        Menu<Food> m = new Menu.Builder().Build();
+        Iterator menuIterator = m.iterator();
 
+        System.out.println(menuIterator.hasNext());
+        while (menuIterator.hasNext()) {
+            System.out.println(menuIterator.next());
+        }
+    }
+}
