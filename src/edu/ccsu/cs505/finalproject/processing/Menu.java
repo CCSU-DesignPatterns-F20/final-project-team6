@@ -5,11 +5,14 @@ import java.util.*;
 /**
  * Prints current menu for the customer to choose from
  */
+
 public class Menu<String> {
+
 
         public Iterator iterator;
 
         //menu will be in array
+
 //        List<T> menu = new ArrayList<>();
 ////        menu.add("Pizza");
          List<String> menu;
@@ -19,6 +22,7 @@ public class Menu<String> {
 //        String item= (String) "pizza";
         this.menu.add((String)"Pizza");
     }
+
 
     private class MenuIterator implements Iterator {
 
@@ -55,6 +59,7 @@ public class Menu<String> {
         System.out.println("2. Grinder \n toppings available- lettuce, onions, ham, turkey, cheese, cucumbers.");
     }
 
+
 }
 
 class test1{
@@ -63,3 +68,4 @@ class test1{
             System.out.println(m.menu);
     }
         }
+
