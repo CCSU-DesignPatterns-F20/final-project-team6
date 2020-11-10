@@ -5,6 +5,12 @@ public class Lettuce extends Food {
     public Lettuce() {
         this.cost = .50;
     }
+
+    @Override
+    public Food clone(Boolean deep) {
+        return new Lettuce();
+    }
+
     @Override
     protected void setup(){}
     @Override

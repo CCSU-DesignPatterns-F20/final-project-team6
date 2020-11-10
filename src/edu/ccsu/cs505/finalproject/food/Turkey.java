@@ -6,6 +6,10 @@ public class Turkey extends Food {
         this.cost = .50;
     }
     @Override
+    public Food clone(Boolean deep) {
+        return new Turkey();
+    }
+    @Override
     protected void setup(){}
     @Override
     protected void cook(){}

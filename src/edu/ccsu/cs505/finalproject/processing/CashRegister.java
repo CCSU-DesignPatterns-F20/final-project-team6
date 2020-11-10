@@ -60,6 +60,7 @@ public class CashRegister {
     {
         // TODO: check if we have enough funds
         this.balance += adjustment;
+        System.out.printf("Added $%.2f to cash register.\n", adjustment);
         return true;
     }
 

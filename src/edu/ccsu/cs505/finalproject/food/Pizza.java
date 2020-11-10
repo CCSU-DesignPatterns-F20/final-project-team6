@@ -7,8 +7,24 @@ package edu.ccsu.cs505.finalproject.food;
 public class Pizza extends Food {
 
 	public Pizza() {
-		this.cost = 10;
+		this.cost = 10.0;
 	}
+
+	public Pizza(double price) {
+		this.cost = price;
+	}
+
+	@Override
+	public Food clone(Boolean deep) {
+		Food clone = new Pizza(this.cost);
+
+		if(deep){
+			clone.cloneToppings(this);
+		}
+
+		return clone;
+	}
+
 	/**
 	 * @param obj Object to compare
 	 * @return true if equal, false otherwise

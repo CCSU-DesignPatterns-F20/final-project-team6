@@ -20,7 +20,7 @@ public class ByPhone implements OrderingStrategy {
         System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
 
         Menu<Food> m = new Menu.Builder().Build();
-        Iterator menuIterator = m.iterator();
+        Iterator<Food> menuIterator = m.iterator();
 
         int itemCount=1;
         while (menuIterator.hasNext()) {

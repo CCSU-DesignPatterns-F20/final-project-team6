@@ -1,8 +1,6 @@
 package edu.ccsu.cs505.finalproject.processing;
 
-import edu.ccsu.cs505.finalproject.food.Food;
-import edu.ccsu.cs505.finalproject.food.Grinder;
-import edu.ccsu.cs505.finalproject.food.Pizza;
+import edu.ccsu.cs505.finalproject.food.*;
 
 import java.util.*;
 
@@ -11,7 +9,7 @@ import java.util.*;
  */
 public class Menu<T extends Food> {
 
-	public Iterator iterator;
+	public Iterator<T> iterator;
 
 	//menu will be in array
 	List<T> items = new ArrayList<T>();
@@ -19,14 +17,24 @@ public class Menu<T extends Food> {
 	public Menu() {
 
 	}
-    public Iterator iterator(){
+    public Iterator<T> iterator(){
         return new MenuIterator();
     }
 	public void addItem(T item) {
 		this.items.add(item);
 	}
 
-	private class MenuIterator implements Iterator {
+	public void printItems() {
+		int itemCount=1;
+		Iterator<T> menuIterator = this.iterator();
+
+		while (menuIterator.hasNext()) {
+			System.out.printf("%d. %s\n", itemCount, menuIterator.next());
+			itemCount++;
+		}
+	}
+
+	private class MenuIterator implements Iterator<T> {
 
 		int index;
 
@@ -56,22 +64,24 @@ public class Menu<T extends Food> {
 	}
 
 	static class Builder {
-		Menu<Food> Build() {
+		Menu<Food> Build() throws Exception {
 			Menu<Food> menu = new Menu<Food>();
 
-			Pizza pizza = new Pizza();
-			pizza.addTopping("Pepperoni");
-			pizza.addTopping("Mushrooms");
-			pizza.addTopping("Sausage");
-			pizza.addTopping("Peppers");
+			FoodFactory foodFactory = new FreshFoodFactory();
+
+			Food pizza = foodFactory.makeFood("pizza");
+			pizza.addTopping(new Pepperoni());
+			pizza.addTopping(new Mushroom());
+			pizza.addTopping(new Sausage());
+			pizza.addTopping(new Peppers());
 
 			menu.addItem(pizza);
 
-			Grinder grinder = new Grinder();
-			grinder.addTopping("Lettuce");
-			grinder.addTopping("Ham");
-			grinder.addTopping("Turkey");
-			grinder.addTopping("Cheese");
+			Food grinder = foodFactory.makeFood("grinder");
+			grinder.addTopping(new Lettuce());
+			grinder.addTopping(new Ham());
+			grinder.addTopping(new Turkey());
+			grinder.addTopping(new Cheese());
 
 
 			menu.addItem(grinder);
@@ -82,9 +92,9 @@ public class Menu<T extends Food> {
 }
 
 class test1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Menu<Food> m = new Menu.Builder().Build();
-        Iterator menuIterator = m.iterator();
+        Iterator<Food> menuIterator = m.iterator();
 
         System.out.println(menuIterator.hasNext());
         while (menuIterator.hasNext()) {

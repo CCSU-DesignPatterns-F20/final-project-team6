@@ -5,6 +5,12 @@ public class Pepperoni extends Food {
     public Pepperoni() {
         this.cost = .50;
     }
+
+    @Override
+    public Food clone(Boolean deep) {
+        return new Pepperoni();
+    }
+
     @Override
     protected void setup(){}
     @Override
