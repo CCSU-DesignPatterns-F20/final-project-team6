@@ -1,5 +1,7 @@
 package edu.ccsu.cs505.finalproject.food;
 
+import java.util.Iterator;
+
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern
@@ -8,6 +10,11 @@ public class Pizza extends Food {
 
 	public Pizza() {
 		this.cost = 10.0;
+	}
+
+	@Override
+	public String name() {
+		return "Pizza";
 	}
 
 	public Pizza(double price) {
@@ -39,7 +46,6 @@ public class Pizza extends Food {
 			Pizza p = (Pizza) obj;
 			return (this.getToppings().equals(((Pizza) obj).getToppings()));}
 	}
-
 
 	/**
 	 * @return int hashcode

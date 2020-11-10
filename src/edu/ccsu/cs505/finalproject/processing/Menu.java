@@ -29,7 +29,7 @@ public class Menu<T extends Food> {
 		Iterator<T> menuIterator = this.iterator();
 
 		while (menuIterator.hasNext()) {
-			System.out.printf("%d. %s\n", itemCount, menuIterator.next());
+			System.out.printf("%d. %s\n", itemCount, menuIterator.next().name());
 			itemCount++;
 		}
 	}
@@ -69,7 +69,7 @@ public class Menu<T extends Food> {
 
 			FoodFactory foodFactory = new FreshFoodFactory();
 
-			Food pizza = foodFactory.makeFood("pizza");
+			Food pizza = new DiscountedFoodDecorator(foodFactory.makeFood("pizza"), 10.00);
 			pizza.addTopping(new Pepperoni());
 			pizza.addTopping(new Mushroom());
 			pizza.addTopping(new Sausage());

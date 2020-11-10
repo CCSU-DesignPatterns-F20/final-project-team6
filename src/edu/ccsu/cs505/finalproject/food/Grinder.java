@@ -10,6 +10,11 @@ public class Grinder extends Food {
 		this.cost = 5.0;
 	}
 
+	@Override
+	public String name() {
+		return "Grinder";
+	}
+
 	public Grinder(Double price)
 	{
 		this.cost = price;

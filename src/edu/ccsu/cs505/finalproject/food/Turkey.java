@@ -5,6 +5,12 @@ public class Turkey extends Food {
     public Turkey() {
         this.cost = .50;
     }
+
+    @Override
+    public String name() {
+        return "Turkey";
+    }
+
     @Override
     public Food clone(Boolean deep) {
         return new Turkey();

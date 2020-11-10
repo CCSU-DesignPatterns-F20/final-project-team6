@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class Food implements Cloneable {
 
-	private List<Food> toppings;
+	protected List<Food> toppings;
 	private List<Observer> ob= new ArrayList<Observer>();
 	protected Double cost;
 
@@ -23,6 +23,8 @@ public abstract class Food implements Cloneable {
 	{
 		this.toppings = new ArrayList<Food>();
 	}
+
+	public abstract String name();
 
 	public Food cloneToppings(Food clone)
 	{
@@ -48,7 +50,9 @@ public abstract class Food implements Cloneable {
 
 	public abstract Food clone(Boolean deep);
 
-	public double getCost(){ return cost; }
+	public double getCost(){
+		return cost;
+	}
 
 	/**
 	 * method to add observer to the observer list for the observer pattern
@@ -118,7 +122,7 @@ public abstract class Food implements Cloneable {
 	 */
 	public String toString()
 	{
-		StringBuilder result = new StringBuilder(this.getClass().getSimpleName());
+		StringBuilder result = new StringBuilder(this.name());
 
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");

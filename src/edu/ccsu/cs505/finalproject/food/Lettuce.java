@@ -7,6 +7,11 @@ public class Lettuce extends Food {
     }
 
     @Override
+    public String name() {
+        return "Lettuce";
+    }
+
+    @Override
     public Food clone(Boolean deep) {
         return new Lettuce();
     }
