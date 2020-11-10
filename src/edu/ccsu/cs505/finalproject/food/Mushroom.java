@@ -5,6 +5,17 @@ public class Mushroom extends Food {
     public Mushroom() {
         this.cost = .50;
     }
+
+    @Override
+    public String name() {
+        return "Mushroom";
+    }
+
+    @Override
+    public Food clone(Boolean deep) {
+        return new Mushroom();
+    }
+
     @Override
     protected void setup(){}
     @Override

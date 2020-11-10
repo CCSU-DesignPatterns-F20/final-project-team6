@@ -1,5 +1,7 @@
 package edu.ccsu.cs505.finalproject.food;
 
+import java.util.Iterator;
+
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern
@@ -7,8 +9,29 @@ package edu.ccsu.cs505.finalproject.food;
 public class Pizza extends Food {
 
 	public Pizza() {
-		this.cost = 10;
+		this.cost = 10.0;
 	}
+
+	@Override
+	public String name() {
+		return "Pizza";
+	}
+
+	public Pizza(double price) {
+		this.cost = price;
+	}
+
+	@Override
+	public Food clone(Boolean deep) {
+		Food clone = new Pizza(this.cost);
+
+		if(deep){
+			clone.cloneToppings(this);
+		}
+
+		return clone;
+	}
+
 	/**
 	 * @param obj Object to compare
 	 * @return true if equal, false otherwise
@@ -23,7 +46,6 @@ public class Pizza extends Food {
 			Pizza p = (Pizza) obj;
 			return (this.getToppings().equals(((Pizza) obj).getToppings()));}
 	}
-
 
 	/**
 	 * @return int hashcode

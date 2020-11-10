@@ -5,6 +5,16 @@ public class Peppers extends Food {
     public Peppers() {
         this.cost = .50;
     }
+
+    @Override
+    public String name() {
+        return "Peppers";
+    }
+
+    @Override
+    public Food clone(Boolean deep) {
+        return new Peppers();
+    }
     @Override
     protected void setup(){}
     @Override

@@ -7,7 +7,27 @@ package edu.ccsu.cs505.finalproject.food;
 public class Grinder extends Food {
 
 	public Grinder() {
-		this.cost = 5;
+		this.cost = 5.0;
+	}
+
+	@Override
+	public String name() {
+		return "Grinder";
+	}
+
+	public Grinder(Double price)
+	{
+		this.cost = price;
+	}
+
+	@Override
+	public Food clone(Boolean deep) {
+		Food clone = new Grinder(this.cost);
+		if(deep){
+			clone.cloneToppings(this);
+		}
+
+		return clone;
 	}
 
 	/**

@@ -10,20 +10,49 @@ import java.util.List;
  * Defines abstract Food with toppings
  * Part of Abstract Factory pattern
  */
-public abstract class Food {
+public abstract class Food implements Cloneable {
 
-	private List<String> toppings;
-	private List<Observer> ob= new ArrayList();
-	protected double cost;
+	protected List<Food> toppings;
+	private List<Observer> ob= new ArrayList<Observer>();
+	protected Double cost;
 
 	/**
 	 * constructor
 	 */
 	public Food()
 	{
-		this.toppings = new ArrayList<String>();
+		this.toppings = new ArrayList<Food>();
 	}
-	public double getCost(){ return cost; }
+
+	public abstract String name();
+
+	public Food cloneToppings(Food clone)
+	{
+		for(Food topping : this.toppings){
+//			Food top = topping.getClass();
+//			clone.addTopping(new topping.getClass());
+		}
+
+		return clone;
+	}
+
+	public void setToppings(List<Food> toppings){
+		this.toppings = toppings;
+	}
+
+
+	/**
+	 * constructor
+	 */
+	public Food(Double price){
+		this.cost = price;
+	};
+
+	public abstract Food clone(Boolean deep);
+
+	public double getCost(){
+		return cost;
+	}
 
 	/**
 	 * method to add observer to the observer list for the observer pattern
@@ -64,14 +93,14 @@ public abstract class Food {
 	/**
 	 * @param topping list of food toppings as Strings
 	 */
-	public void addTopping(String topping){
+	public void addTopping(Food topping){
 		this.toppings.add( topping );
 	}
 
 	/**
 	 * @return list of toppings
 	 */
-	public List<String> getToppings()
+	public List<Food> getToppings()
 	{
 		return this.toppings;
 	}
@@ -81,7 +110,7 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	private void placeToppings() throws InterruptedException {
-		for ( String topping : toppings) {
+		for ( Food topping : toppings) {
 			System.out.println(("Adding " + topping));
 			Thread.sleep(3000);
 
@@ -93,12 +122,12 @@ public abstract class Food {
 	 */
 	public String toString()
 	{
-		StringBuilder result = new StringBuilder(this.getClass().getSimpleName());
+		StringBuilder result = new StringBuilder(this.name());
 
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");
 			// ** TODO: iterator pattern
-			Iterator<String> toppingsIterator = this.toppings.iterator();
+			Iterator<Food> toppingsIterator = this.toppings.iterator();
 
 			while(toppingsIterator.hasNext())
 			{
@@ -135,11 +164,15 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	protected abstract void slice() throws InterruptedException;
-}
 
-class test2{
-	public static void main(String[]args){
-		Food f=new Pizza();
-		f.addTopping("oijij");
+	public void printToppings() {
+		int itemCount=1;
+
+		Iterator<Food> toppingsIterator = this.toppings.listIterator();
+
+		while (toppingsIterator.hasNext()) {
+			System.out.printf("%d. %s\n", itemCount, toppingsIterator.next());
+			itemCount++;
+		}
 	}
 }
