@@ -58,6 +58,6 @@ public class Chef implements Observer {
 	@Override
 	public void update(String s) {
 		this.status=s;
-		System.out.println(s);
+		System.out.printf("Chef %s yells: %s!", this.name,  s.toUpperCase());
 	}
 }
