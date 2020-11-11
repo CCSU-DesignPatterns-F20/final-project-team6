@@ -97,7 +97,11 @@ public class Cashier {
 
         cashRegister.openDrawer();
 
-        return cashRegister.depositCash(transactionAmount);
+        boolean transactionSuccess  = cashRegister.depositCash(transactionAmount);
+
+        cashRegister.lock();
+
+        return transactionSuccess;
     }
 
     /**

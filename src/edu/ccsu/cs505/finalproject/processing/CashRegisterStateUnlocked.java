@@ -3,7 +3,8 @@ package edu.ccsu.cs505.finalproject.processing;
 public class CashRegisterStateUnlocked extends CashRegisterStateOn{
 	@Override
 	public void lock(CashRegister register) {
-		register.lock();
+		register.setCashRegisterState(new CashRegisterStateUnlocked());
+		System.out.println("Cash Register is locked");
 	}
 
 	@Override
