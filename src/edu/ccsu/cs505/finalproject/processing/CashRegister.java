@@ -97,10 +97,16 @@ public class CashRegister {
         }
     }
 
+    /**
+     * @param drawerState state to set the drawer to, OPEN or CLOSED
+     */
     void operateDrawer(CashRegisterDrawerState drawerState) {
         this.drawerState = drawerState;
     }
 
+    /**
+     * Opens cash register drawer, only when cash register is on and unlocked
+     */
     void openDrawer(){
         currentState.openDrawer(this);
     }
@@ -109,16 +115,32 @@ public class CashRegister {
         currentState.closeDrawer(this);
     }
 
+    /**
+     *  Acts upon power button press
+     */
     void powerPress(){
         currentState.powerPress(this);
     };
 
+    /**
+     * Locks the register so it is inoperable by unauthorized people
+     */
     void lock(){
         currentState.lock(this);
     };
+
+    /**
+     * @param code to unlock the register
+     * @return true if code was accepted and unlocking was successful, false it was invalid
+     */
     boolean unlock(String code){
         return currentState.unlock(code, this );
     };
+
+    /**
+     * @param amount to deposit
+     * @return
+     */
     boolean depositCash(Double amount){
         if( currentState.allowDeposit(amount, this ) ) {
             if( this.drawerState == CashRegisterDrawerState.OPEN){
@@ -132,6 +154,11 @@ public class CashRegister {
         }
         return false;
     }
+
+    /**
+     * @param amount to return change to customer
+     * @return true if successfully returned cash to customer, false if there were cash register issues that prevented it
+     */
     boolean getChange(Double amount){
         if( currentState.allowGetChange(amount, this ) ) {
             if( this.drawerState == CashRegisterDrawerState.OPEN){
@@ -146,6 +173,9 @@ public class CashRegister {
         return false;
     };
 
+    /**
+     * @param newState state to switch to
+     */
     void setCashRegisterState(CashRegisterState newState){
         this.currentState = newState;
     }
