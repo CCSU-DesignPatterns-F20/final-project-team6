@@ -24,18 +24,28 @@ public abstract class Food implements Cloneable {
 		this.toppings = new ArrayList<Food>();
 	}
 
+	/**
+	 * @return name of the food
+	 */
 	public abstract String name();
 
+	/**
+	 * @param clone
+	 * @return
+	 */
 	public Food cloneToppings(Food clone)
 	{
 		for(Food topping : this.toppings){
-//			Food top = topping.getClass();
-//			clone.addTopping(new topping.getClass());
+			Food top = topping.clone(false);
+			clone.addTopping(top);
 		}
 
 		return clone;
 	}
 
+	/**
+	 * @param toppings list of toppings to add
+	 */
 	public void setToppings(List<Food> toppings){
 		this.toppings = toppings;
 	}
@@ -48,6 +58,10 @@ public abstract class Food implements Cloneable {
 		this.cost = price;
 	};
 
+	/**
+	 * @param deep
+	 * @return
+	 */
 	public abstract Food clone(Boolean deep);
 
 	public double getCost(){
@@ -165,6 +179,9 @@ public abstract class Food implements Cloneable {
 	 */
 	protected abstract void slice() throws InterruptedException;
 
+	/**
+	 * prints Food item toppings to choose from
+	 */
 	public void printToppings() {
 		int itemCount=1;
 
