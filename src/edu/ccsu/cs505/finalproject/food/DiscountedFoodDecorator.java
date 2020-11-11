@@ -1,5 +1,8 @@
 package edu.ccsu.cs505.finalproject.food;
 
+/**
+ * Food decorator to apply discounts to existing food items
+ */
 public class DiscountedFoodDecorator extends FoodDecorator{
 	private Double percentageDiscount;
 
@@ -22,12 +25,15 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood, this.percentageDiscount);
 
 		if(deep){
-			clone.cloneToppings(this);
+			this.cloneToppings(clone);
 		}
 
 		return clone;
 	}
 
+	/**
+	 * @return
+	 */
 	public double getCost()
 	{
 		return decoratedFood.getCost() - (decoratedFood.getCost() * (percentageDiscount * 0.01)) ;

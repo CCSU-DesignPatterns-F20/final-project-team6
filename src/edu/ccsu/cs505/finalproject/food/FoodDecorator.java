@@ -2,13 +2,22 @@ package edu.ccsu.cs505.finalproject.food;
 
 import edu.ccsu.cs505.finalproject.processing.Observer;
 
+/**
+ * Generic Decorator for Food class
+ */
 public abstract class FoodDecorator extends Food{
 	protected Food decoratedFood;
 
+	/**
+	 * @param food object to be decorated
+	 */
 	public FoodDecorator(Food food) {
 		this.decoratedFood = food;
 	}
 
+	/**
+	 * @return cost of food
+	 */
 	public double getCost()
 	{
 		return this.decoratedFood.getCost();
