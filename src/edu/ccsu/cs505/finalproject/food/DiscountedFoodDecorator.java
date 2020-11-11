@@ -35,17 +35,17 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 
 	@Override
 	protected void setup() throws InterruptedException {
-
+		this.decoratedFood.setup();
 	}
 
 	@Override
 	protected void cook() throws InterruptedException {
-
+		this.decoratedFood.cook();
 	}
 
 	@Override
 	protected void slice() throws InterruptedException {
-
+		this.decoratedFood.slice();
 	}
 
 	@Override
