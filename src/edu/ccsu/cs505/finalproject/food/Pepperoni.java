@@ -1,32 +1,27 @@
 package edu.ccsu.cs505.finalproject.food;
 
-public class Pepperoni extends Food {
+public class Pepperoni extends Toppings {
 
     public Pepperoni() {
         this.cost = .50;
     }
 
+
     @Override
-    public String name() {
+    public String toString() {
         return "Pepperoni";
     }
 
-    @Override
-    public Food clone(Boolean deep) {
-        return new Pepperoni();
-    }
 
     @Override
-    protected void setup(){}
-    @Override
-    protected void cook(){}
-    @Override
-    protected void slice(){}
+    public Object clone(boolean b) {
+        return new Pepperoni();
+    }
 }
 
 class test6{
     public static void main (String[] args){
         Pepperoni p=new Pepperoni();
-        System.out.println(p.getCost());
+        System.out.println(p.cost);
     }
 }

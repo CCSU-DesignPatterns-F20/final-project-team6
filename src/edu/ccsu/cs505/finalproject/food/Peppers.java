@@ -1,24 +1,21 @@
 package edu.ccsu.cs505.finalproject.food;
 
-public class Peppers extends Food {
+public class Peppers extends Toppings {
 
     public Peppers() {
         this.cost = .50;
     }
 
+
     @Override
-    public String name() {
+    public String toString() {
         return "Peppers";
     }
 
+
     @Override
-    public Food clone(Boolean deep) {
+    public Object clone(boolean b) {
         return new Peppers();
     }
-    @Override
-    protected void setup(){}
-    @Override
-    protected void cook(){}
-    @Override
-    protected void slice(){}
+
 }

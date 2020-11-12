@@ -1,7 +1,5 @@
 package edu.ccsu.cs505.finalproject.food;
 
-import java.util.Iterator;
-
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern

@@ -65,7 +65,7 @@ public class Menu<T extends Food> {
 
 	static class Builder {
 		Menu<Food> Build() throws Exception {
-			Menu<Food> menu = new Menu<Food>();
+			Menu<Food> menu = new Menu<>();
 
 			FoodFactory foodFactory = new FreshFoodFactory();
 

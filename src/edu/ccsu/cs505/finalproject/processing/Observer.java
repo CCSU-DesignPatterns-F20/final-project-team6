@@ -6,5 +6,9 @@ package edu.ccsu.cs505.finalproject.processing;
  */
 public interface Observer {
 
+    /**
+     * method to update observers
+     * @param s message of the update
+     */
     public void update(String s);
 }

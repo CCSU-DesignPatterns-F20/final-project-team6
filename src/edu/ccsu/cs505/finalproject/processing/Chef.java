@@ -15,8 +15,6 @@ public class Chef implements Observer {
 		this.name = name;
 	}
 
-
-
 	/**
 	 * @param foodType type of food to cook, pizza or grinder with toppings
 	 */
@@ -28,6 +26,11 @@ public class Chef implements Observer {
 		this.cook(foodType);
 	}
 
+	/**
+	 *
+	 * @param o compare two objects
+	 * @return if both objects are equal
+	 */
 	@Override
 	public boolean equals(Object o) {
 
@@ -37,11 +40,23 @@ public class Chef implements Observer {
 		return this.name.equals(chef.name);
 	}
 
+	/**
+	 *
+	 * @return hashcode based on chef name
+	 */
 	@Override
 	public int hashCode() {
 		return this.name.hashCode();
 	}
 
+	/**
+	 *
+	 * @return the name of the chef
+	 */
+	@Override
+	public String toString(){
+		return this.name;
+	}
 
 	/**
 	 * @param item to cook

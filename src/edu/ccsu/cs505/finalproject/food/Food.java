@@ -8,11 +8,11 @@ import java.util.List;
 
 /**
  * Defines abstract Food with toppings
- * Part of Abstract Factory pattern
+ * Part of Abstract Factory pattern and template pattern
  */
 public abstract class Food implements Cloneable {
 
-	protected List<Food> toppings;
+	protected List<Toppings> toppings;
 	private List<Observer> ob= new ArrayList<Observer>();
 	protected Double cost;
 
@@ -21,7 +21,7 @@ public abstract class Food implements Cloneable {
 	 */
 	public Food()
 	{
-		this.toppings = new ArrayList<Food>();
+		this.toppings = new ArrayList<Toppings>();
 	}
 
 	/**
@@ -35,8 +35,8 @@ public abstract class Food implements Cloneable {
 	 */
 	public Food cloneToppings(Food clone)
 	{
-		for(Food topping : this.toppings){
-			Food top = topping.clone(false);
+		for(Toppings topping : this.toppings){
+			Toppings top = (Toppings) topping.clone(false);
 			clone.addTopping(top);
 		}
 
@@ -46,7 +46,7 @@ public abstract class Food implements Cloneable {
 	/**
 	 * @param toppings list of toppings to add
 	 */
-	public void setToppings(List<Food> toppings){
+	public void setToppings(List<Toppings> toppings){
 		this.toppings = toppings;
 	}
 
@@ -86,7 +86,7 @@ public abstract class Food implements Cloneable {
 
 	/**
 	 * method to notify a change to all observers
-	 * @param s return a message about the change
+	 * @param s gives a message about the change
 	 */
 	public void notifyObservers(String s){
 		for (Observer x: ob){
@@ -107,14 +107,14 @@ public abstract class Food implements Cloneable {
 	/**
 	 * @param topping list of food toppings as Strings
 	 */
-	public void addTopping(Food topping){
+	public void addTopping(Toppings topping){
 		this.toppings.add( topping );
 	}
 
 	/**
 	 * @return list of toppings
 	 */
-	public List<Food> getToppings()
+	public List<Toppings> getToppings()
 	{
 		return this.toppings;
 	}
@@ -124,7 +124,7 @@ public abstract class Food implements Cloneable {
 	 * @throws InterruptedException
 	 */
 	private void placeToppings() throws InterruptedException {
-		for ( Food topping : toppings) {
+		for ( Toppings topping : toppings) {
 			System.out.println(("Adding " + topping));
 			Thread.sleep(3000);
 
@@ -141,7 +141,7 @@ public abstract class Food implements Cloneable {
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");
 			// ** TODO: iterator pattern
-			Iterator<Food> toppingsIterator = this.toppings.iterator();
+			Iterator<Toppings> toppingsIterator = this.toppings.iterator();
 
 			while(toppingsIterator.hasNext())
 			{
@@ -185,7 +185,7 @@ public abstract class Food implements Cloneable {
 	public void printToppings() {
 		int itemCount=1;
 
-		Iterator<Food> toppingsIterator = this.toppings.listIterator();
+		Iterator<Toppings> toppingsIterator = this.toppings.listIterator();
 
 		while (toppingsIterator.hasNext()) {
 			System.out.printf("%d. %s\n", itemCount, toppingsIterator.next());

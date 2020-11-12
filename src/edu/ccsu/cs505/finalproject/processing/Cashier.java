@@ -1,7 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
+
 import edu.ccsu.cs505.finalproject.food.Food;
-import edu.ccsu.cs505.finalproject.food.FreshFoodFactory;
 import edu.ccsu.cs505.finalproject.food.FoodFactory;
+import edu.ccsu.cs505.finalproject.food.Toppings;
 
 import java.util.Scanner;
 
@@ -46,7 +47,7 @@ public class Cashier {
             }
             if(intToppingIndex > 0)
             {
-                Food topping = menuItem.getToppings().get(--intToppingIndex).clone(false);
+                Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone(false);
                 foodPick.addTopping( topping );
             }
         }
