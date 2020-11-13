@@ -22,7 +22,7 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 
 	@Override
 	public Food clone(Boolean deep) {
-		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood, this.percentageDiscount);
+		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood.clone(deep), this.percentageDiscount);
 
 		if(deep){
 			this.cloneToppings(clone);

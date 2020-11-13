@@ -2,6 +2,7 @@ package edu.ccsu.cs505.finalproject.food;
 
 import edu.ccsu.cs505.finalproject.processing.Observer;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -54,5 +55,16 @@ public abstract class FoodDecorator extends Food{
 	public List<Toppings> getToppings()
 	{
 		return this.decoratedFood.toppings;
+	}
+
+	/**
+	 * @param toppings list of toppings to add
+	 */
+	public void setToppings(List<Toppings> toppings){
+		this.decoratedFood.toppings = toppings;
+	}
+
+	public void printToppings() {
+		this.decoratedFood.printToppings();
 	}
 }
