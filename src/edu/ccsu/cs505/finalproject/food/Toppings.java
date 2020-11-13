@@ -7,4 +7,45 @@ public abstract class Toppings {
     protected Double cost;
 
     public abstract Object clone(boolean b);
+
+    /**
+     *
+     * @return name of class
+     */
+    public String toString() {
+        return getClass().getSimpleName();
+    }
+
+    /**
+     *
+     * @return hash based on cost of topping
+     */
+    public int hashCode()
+    {
+        Double h=this.cost*31;
+        int hc = (int)Math.round(h);
+        return hc;
+    }
+
+    /**
+     *
+     * @param x object to compare
+     * @return boolean if the objects equal
+     */
+    public boolean equals (Object x)
+    {
+        if(!(x instanceof Toppings))
+        {
+            return false;
+        }
+        else if(x == this)
+        {
+            return true;
+        }
+        else
+        {
+            Toppings T= (Toppings) x;
+            return (this.cost.equals(T.cost) && this.toString().equals(T.toString()));
+        }
+    }
 }
