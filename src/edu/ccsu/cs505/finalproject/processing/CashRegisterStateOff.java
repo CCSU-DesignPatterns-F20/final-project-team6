@@ -1,5 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+/**
+ * Represents Off state on cash registers, part of State pattern
+ */
 public class CashRegisterStateOff implements CashRegisterState{
 	@Override
 	public void powerPress(CashRegister register) {

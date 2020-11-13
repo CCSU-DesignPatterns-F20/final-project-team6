@@ -1,5 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+/**
+ * Represents On-Unlocked state on cash registers, part of State pattern
+ */
 public class CashRegisterStateUnlocked extends CashRegisterStateOn{
 	@Override
 	public void lock(CashRegister register) {

@@ -36,7 +36,7 @@ public abstract class Food implements Cloneable {
 	public Food cloneToppings(Food clone)
 	{
 		for(Toppings topping : this.toppings){
-			Toppings top = (Toppings) topping.clone(false);
+			Toppings top = (Toppings) topping.clone();
 			clone.addTopping(top);
 		}
 
@@ -59,8 +59,8 @@ public abstract class Food implements Cloneable {
 	};
 
 	/**
-	 * @param deep
-	 * @return
+	 * @param deep Boolean true, when you request a deep copy, false for shallow
+	 * @return cloned object
 	 */
 	public abstract Food clone(Boolean deep);
 
@@ -70,7 +70,7 @@ public abstract class Food implements Cloneable {
 
 	/**
 	 * method to add observer to the observer list for the observer pattern
-	 * @param o
+	 * @param o observer to attach
 	 */
 	public void attach(Observer o){
 		ob.add(o);
@@ -78,7 +78,7 @@ public abstract class Food implements Cloneable {
 
 	/**
 	 * method to remove observer from observer list for the observer pattern
-	 * @param o
+	 * @param o observer to detach
 	 */
 	public void detach(Observer o){
 		ob.remove(o);

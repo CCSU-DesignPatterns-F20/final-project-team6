@@ -47,7 +47,7 @@ public class Cashier {
             }
             if(intToppingIndex > 0)
             {
-                Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone(false);
+                Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone();
                 foodPick.addTopping( topping );
             }
         }

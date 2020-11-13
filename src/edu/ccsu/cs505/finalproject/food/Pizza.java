@@ -6,6 +6,9 @@ package edu.ccsu.cs505.finalproject.food;
  */
 public class Pizza extends Food {
 
+	/**
+	 * Pizza constructor
+	 */
 	public Pizza() {
 		this.cost = 10.0;
 	}

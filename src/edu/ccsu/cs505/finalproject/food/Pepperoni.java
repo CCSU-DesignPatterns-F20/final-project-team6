@@ -14,7 +14,7 @@ public class Pepperoni extends Toppings {
 
 
     @Override
-    public Object clone(boolean b) {
+    public Object clone() {
         return new Pepperoni();
     }
 }
