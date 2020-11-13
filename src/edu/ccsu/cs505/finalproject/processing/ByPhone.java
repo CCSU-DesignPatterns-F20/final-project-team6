@@ -37,7 +37,7 @@ public class ByPhone implements OrderingStrategy {
      * @return returns class name
      */
     @Override
-    public String toString() { return this.getClass().getName(); }
+    public String toString() { return this.getClass().getSimpleName(); }
 
     /**
      *

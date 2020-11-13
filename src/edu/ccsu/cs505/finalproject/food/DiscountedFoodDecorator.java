@@ -7,8 +7,8 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 	private Double percentageDiscount;
 
 	/**
-	 * @param discountedFood
-	 * @param percentageDiscount 10 means 10% discount
+	 * @param discountedFood part of Decorator pattern
+	 * @param percentageDiscount 10.0 means 10% discount
 	 */
 	public DiscountedFoodDecorator(Food discountedFood, Double percentageDiscount){
 		super(discountedFood);
@@ -22,7 +22,7 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 
 	@Override
 	public Food clone(Boolean deep) {
-		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood, this.percentageDiscount);
+		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood.clone(deep), this.percentageDiscount);
 
 		if(deep){
 			this.cloneToppings(clone);
@@ -56,6 +56,7 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 
 	@Override
 	public String toString() {
-		return super.toString();
+		String test = super.toString();
+		return this.decoratedFood.toString();
 	}
 }

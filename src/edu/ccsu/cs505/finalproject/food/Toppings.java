@@ -6,7 +6,8 @@ package edu.ccsu.cs505.finalproject.food;
 public abstract class Toppings {
     protected Double cost;
 
-    public abstract Object clone(boolean b);
+    public abstract Object clone();
+
 
     /**
      *

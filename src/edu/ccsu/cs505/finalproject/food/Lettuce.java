@@ -16,7 +16,7 @@ public class Lettuce extends Toppings {
      * @return new instance of Lettuce
      */
     @Override
-    public Object clone(boolean b) {
+    public Object clone() {
         return new Lettuce();
     }
 

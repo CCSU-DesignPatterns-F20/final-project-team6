@@ -17,7 +17,7 @@ public class Menu<T extends Food> {
 	public Menu() {
 
 	}
-    public Iterator<T> iterator(){
+  public Iterator<T> iterator(){
         return new MenuIterator();
     }
 	public void addItem(T item) {
@@ -63,6 +63,9 @@ public class Menu<T extends Food> {
 		}
 	}
 
+	/**
+	 * Helper class that builds restaurant menu
+	 */
 	static class Builder {
 		Menu<Food> Build() throws Exception {
 			Menu<Food> menu = new Menu<>();

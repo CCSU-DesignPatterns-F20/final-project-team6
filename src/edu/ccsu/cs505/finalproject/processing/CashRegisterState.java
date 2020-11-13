@@ -1,5 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+/**
+ * Interface for cash register states, part of State pattern
+ */
 public interface CashRegisterState {
 	void powerPress(CashRegister register);
 	void lock(CashRegister register);

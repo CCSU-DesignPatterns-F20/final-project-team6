@@ -2,6 +2,9 @@ package edu.ccsu.cs505.finalproject.food;
 
 import edu.ccsu.cs505.finalproject.processing.Observer;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Generic Decorator for Food class
  */
@@ -37,5 +40,31 @@ public abstract class FoodDecorator extends Food{
 	 */
 	public void detach(Observer o){
 		decoratedFood.detach(o);
+	}
+
+	/**
+	 * @param topping list of food toppings as Strings
+	 */
+	public void addTopping(Toppings topping){
+		this.decoratedFood.addTopping( topping );
+	}
+
+	/**
+	 * @return list of toppings
+	 */
+	public List<Toppings> getToppings()
+	{
+		return this.decoratedFood.toppings;
+	}
+
+	/**
+	 * @param toppings list of toppings to add
+	 */
+	public void setToppings(List<Toppings> toppings){
+		this.decoratedFood.toppings = toppings;
+	}
+
+	public void printToppings() {
+		this.decoratedFood.printToppings();
 	}
 }

@@ -16,7 +16,7 @@ public class Sausage extends Toppings {
      * @return new instance of class
      */
     @Override
-    public Object clone(boolean b) {
+    public Object clone() {
         return new Sausage();
     }
 
