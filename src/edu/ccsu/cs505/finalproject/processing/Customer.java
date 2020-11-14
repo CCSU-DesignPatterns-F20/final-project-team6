@@ -189,6 +189,7 @@ public class Customer {
         /**
          * Setter
          * @param address the Customer's address to set
+         * @return CustomerBuilder instance
          */
         public CustomerBuilder setAddress (String address) {
             this.address = address;
@@ -197,6 +198,7 @@ public class Customer {
         /**
          * Setter
          * @param phoneNumber the Customer's phone number to set
+         * @return CustomerBuilder instance
          */
         public CustomerBuilder setPhoneNumber (String phoneNumber) {
             this.phoneNumber = phoneNumber;
@@ -206,6 +208,7 @@ public class Customer {
         /**
          * Setter
          * @param email the Customer's email to set
+         * @return CustomerBuilder instance
          */
         public CustomerBuilder setEmail (String email) {
             this.email = email;
