@@ -190,7 +190,7 @@ public class Customer {
          * Setter
          * @param address the Customer's address to set
          */
-        public Customer.CustomerBuilder setAddress (String address) {
+        public CustomerBuilder setAddress (String address) {
             this.address = address;
             return this;
         }
@@ -198,7 +198,7 @@ public class Customer {
          * Setter
          * @param phoneNumber the Customer's phone number to set
          */
-        public Customer.CustomerBuilder setPhoneNumber (String phoneNumber) {
+        public CustomerBuilder setPhoneNumber (String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
@@ -207,7 +207,7 @@ public class Customer {
          * Setter
          * @param email the Customer's email to set
          */
-        public Customer.CustomerBuilder setEmail (String email) {
+        public CustomerBuilder setEmail (String email) {
             this.email = email;
             return this;
         }
