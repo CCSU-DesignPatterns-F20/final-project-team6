@@ -12,7 +12,6 @@ public class Lettuce extends Toppings {
 
     /**
      *
-     * @param b
      * @return new instance of Lettuce
      */
     @Override
@@ -24,10 +23,10 @@ public class Lettuce extends Toppings {
 class test333 {
 
     public static void main(String[] args){
-        Lettuce L = new Lettuce();
-        Toppings L2 = new Turkey();
-        System.out.println(L.hashCode());
-        System.out.println(L.toString());
-        System.out.println(L.equals(L2));
+        Lettuce l = new Lettuce();
+        Toppings l2 = new Turkey();
+        System.out.println(l.hashCode());
+        System.out.println(l.toString());
+        System.out.println(l.equals(l2));
     }
 }

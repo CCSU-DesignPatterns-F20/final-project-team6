@@ -39,14 +39,19 @@ public abstract class Toppings {
         {
             return false;
         }
+
+        if( !this.getClass().toString().equalsIgnoreCase(x.getClass().toString()) ){
+            return false;
+        }
+
         else if(x == this)
         {
             return true;
         }
         else
         {
-            Toppings T= (Toppings) x;
-            return (this.cost.equals(T.cost) && this.toString().equals(T.toString()));
+            Toppings t = (Toppings) x;
+            return (this.cost.equals(t.cost) && this.toString().equals(t.toString()));
         }
     }
 }

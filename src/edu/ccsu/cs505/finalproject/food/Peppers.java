@@ -12,7 +12,6 @@ public class Peppers extends Toppings {
 
     /**
      *
-     * @param b
      * @return new instance of class
      */
     @Override

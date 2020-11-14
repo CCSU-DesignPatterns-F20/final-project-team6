@@ -15,9 +15,12 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 		this.percentageDiscount = percentageDiscount;
 	}
 
-	@Override
-	public String name() {
-		return decoratedFood.name();
+	/**
+	 * @return
+	 */
+	public double getCost()
+	{
+		return decoratedFood.getCost() - (decoratedFood.getCost() * (percentageDiscount * 0.01)) ;
 	}
 
 	@Override
@@ -31,32 +34,4 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 		return clone;
 	}
 
-	/**
-	 * @return
-	 */
-	public double getCost()
-	{
-		return decoratedFood.getCost() - (decoratedFood.getCost() * (percentageDiscount * 0.01)) ;
-	}
-
-	@Override
-	protected void setup() throws InterruptedException {
-		this.decoratedFood.setup();
-	}
-
-	@Override
-	protected void cook() throws InterruptedException {
-		this.decoratedFood.cook();
-	}
-
-	@Override
-	protected void slice() throws InterruptedException {
-		this.decoratedFood.slice();
-	}
-
-	@Override
-	public String toString() {
-		String test = super.toString();
-		return this.decoratedFood.toString();
-	}
 }

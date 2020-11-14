@@ -11,8 +11,6 @@ public class Cheese extends Toppings{
     }
 
     /**
-     *
-     * @param b
      * @return new instance
      */
      @Override

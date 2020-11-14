@@ -67,13 +67,13 @@ public class Customer {
 
         StringBuilder stringBuilder = new StringBuilder("Customer("+firstName+" "+lastName +") with:");
         if (address !=null) {
-            stringBuilder.append(" address="+address);
+            stringBuilder.append(" address=").append(address);
         }
         if (phoneNumber != null) {
-            stringBuilder.append(", phoneNumber="+phoneNumber);
+            stringBuilder.append(", phoneNumber=").append(phoneNumber);
         }
         if (email!=null) {
-            stringBuilder.append(", email="+email);
+            stringBuilder.append(", email=").append(email);
 
         }
         return stringBuilder.toString()+" is ordering " + orderingStrategy.toString();

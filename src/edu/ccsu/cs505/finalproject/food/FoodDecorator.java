@@ -2,7 +2,6 @@ package edu.ccsu.cs505.finalproject.food;
 
 import edu.ccsu.cs505.finalproject.processing.Observer;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -66,5 +65,31 @@ public abstract class FoodDecorator extends Food{
 
 	public void printToppings() {
 		this.decoratedFood.printToppings();
+	}
+
+	@Override
+	public String name() {
+		return decoratedFood.name();
+	}
+
+	@Override
+	protected void setup() throws InterruptedException {
+		this.decoratedFood.setup();
+	}
+
+	@Override
+	protected void cook() throws InterruptedException {
+		this.decoratedFood.cook();
+	}
+
+	@Override
+	protected void slice() throws InterruptedException {
+		this.decoratedFood.slice();
+	}
+
+	@Override
+	public String toString() {
+		String test = super.toString();
+		return this.decoratedFood.toString();
 	}
 }
