@@ -89,7 +89,16 @@ public abstract class FoodDecorator extends Food{
 
 	@Override
 	public String toString() {
-		String test = super.toString();
 		return this.decoratedFood.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return this.decoratedFood.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return this.decoratedFood.equals(obj);
 	}
 }
