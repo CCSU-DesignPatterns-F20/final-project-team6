@@ -34,30 +34,6 @@ public class Pizza extends Food {
 	}
 
 	/**
-	 * @param obj Object to compare
-	 * @return true if equal, false otherwise
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Pizza))
-		{ return false; }
-		else if(obj == this)
-		{ return true; }
-		else {
-			Pizza p = (Pizza) obj;
-			return (this.getToppings().equals(((Pizza) obj).getToppings()));}
-	}
-
-	/**
-	 * @return int hashcode
-	 */
-	@Override
-	public int hashCode() {
-		return super.getToppings().hashCode();
-	}
-
-
-	/**
 	 * Template Pattern, implementation of a hook method
 	 * @throws InterruptedException
 	 */

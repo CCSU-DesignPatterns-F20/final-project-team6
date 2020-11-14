@@ -31,29 +31,6 @@ public class Grinder extends Food {
 	}
 
 	/**
-	 * @param obj Object to compare
-	 * @return true if equal, false otherwise
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Grinder))
-		{ return false; }
-		else if(obj == this)
-		{ return true; }
-		else {
-			Grinder g = (Grinder) obj;
-			return (this.getToppings().equals(((Grinder) obj).getToppings()));}
-	}
-
-	/**
-	 * @return int
-	 */
-	@Override
-	public int hashCode() {
-		return super.getToppings().hashCode();
-	}
-
-	/**
 	 * Template Pattern, implementation of a hook method
 	 * @throws InterruptedException
 	 */

@@ -160,6 +160,35 @@ public abstract class Food implements Cloneable {
 
 
 	/**
+	 * @return int
+	 */
+	@Override
+	public int hashCode() {
+		return this.getToppings().hashCode();
+	}
+
+	/**
+	 * @param obj Object to compare
+	 * @return true if equal, false otherwise
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Food)){
+			return false;
+		}
+
+		if( !this.getClass().toString().equalsIgnoreCase(obj.getClass().toString()) ){
+			return false;
+		}
+		if(obj == this){
+			return true;
+		}
+		else {
+			Food food = (Food) obj;
+			return (this.getToppings().equals(((Food) food).getToppings()));}
+	}
+
+	/**
 	 * Abstract hook method for Template Pattern, it needs to be implemented by all food items
 	 * Initial steps before preparing food
 	 */
