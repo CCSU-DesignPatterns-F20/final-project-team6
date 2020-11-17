@@ -10,7 +10,7 @@ public class Pizza extends Food {
 	 * Pizza constructor
 	 */
 	public Pizza() {
-		this.cost = 10.0;
+		this.cost = 20.0;
 	}
 
 	@Override

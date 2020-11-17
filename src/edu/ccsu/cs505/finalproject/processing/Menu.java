@@ -29,7 +29,8 @@ public class Menu<T extends Food> {
 		Iterator<T> menuIterator = this.iterator();
 
 		while (menuIterator.hasNext()) {
-			System.out.printf("%d. %s\n", itemCount, menuIterator.next().name());
+			Food f = menuIterator.next();
+			System.out.printf("%d. %s            $ %,.2f \n", itemCount, f.name(), f.getCost());
 			itemCount++;
 		}
 	}
