@@ -20,6 +20,10 @@ public class Main {
         System.out.println("How will you be ordering today? \n Type 1 for in person. \n Type 2 for by phone.");
         int selection = scanner.nextInt();
 
+        while (selection < 1 || selection > 2){
+            System.out.println("Incorrect selection, try again");
+            selection = scanner.nextInt();
+        }
         OrderingStrategy orderingStrategy;
         if(selection ==1){
              orderingStrategy = new InPerson();

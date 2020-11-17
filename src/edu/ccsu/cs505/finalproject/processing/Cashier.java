@@ -30,7 +30,10 @@ public class Cashier {
         Menu<Food> menu = new Menu.Builder().Build();
 
         int pick = scanner.nextInt();
-
+        while (pick < 1 || pick > 2){
+            System.out.println("Incorrect selection, try again");
+            pick = scanner.nextInt();
+        }
         // ** get empty food item to put toppings on
         foodPick =  menu.items.get(pick -1).clone(false);
         System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type 0 to finish");
