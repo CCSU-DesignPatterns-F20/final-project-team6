@@ -217,7 +217,8 @@ public abstract class Food implements Cloneable {
 		Iterator<Toppings> toppingsIterator = this.toppings.listIterator();
 
 		while (toppingsIterator.hasNext()) {
-			System.out.printf("%d. %s\n", itemCount, toppingsIterator.next());
+			Toppings t=toppingsIterator.next();
+			System.out.printf("%d. %s            $ %,.2f \n", itemCount, t, t.getCost());
 			itemCount++;
 		}
 	}

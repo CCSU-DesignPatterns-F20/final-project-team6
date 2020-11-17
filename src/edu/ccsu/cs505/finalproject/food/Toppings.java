@@ -7,7 +7,9 @@ public abstract class Toppings {
     protected Double cost;
 
     public abstract Object clone();
-
+    public double getCost(){
+        return cost;
+    }
 
     /**
      *
