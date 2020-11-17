@@ -44,19 +44,24 @@ public class Cashier {
             intToppingIndex = scanner.nextInt();
             if (intToppingIndex == 0) {
                 break;
-            }
-            if(intToppingIndex > 0)
+            }else if(intToppingIndex > 0 && intToppingIndex < 5)
             {
                 Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone();
                 foodPick.addTopping( topping );
+            }else{
+                System.out.println("Not a topping, try again");
             }
         }
-        System.out.println("So you'll have a " + foodPick + "? Let me enter that into the cash register");
+//        add visitor price here to add price of pizza and toppings
+        System.out.println("So you'll have a " + foodPick.name() + " with "+ foodPick.getToppings()+
+                "? That will be $" + foodPick.getCost()+ ". Let me enter that into the cash register");
+        Thread.sleep(3000);
 //        send to cashregister
         // TODO: send the item price to cash register
         if(processTransaction(foodPick.getCost())) // ** no item price yet
         {
             System.out.println("Sending to the chef now");
+            Thread.sleep(3000);
             this.sendToChef();
         }
         else
