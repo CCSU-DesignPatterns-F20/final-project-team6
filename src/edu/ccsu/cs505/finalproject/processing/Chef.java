@@ -10,7 +10,7 @@ import edu.ccsu.cs505.finalproject.food.Food;
 public class Chef implements Observer {
 
 	private String status;
-	String name;
+	private String name;
 	public Chef(String name){
 		this.name = name;
 	}

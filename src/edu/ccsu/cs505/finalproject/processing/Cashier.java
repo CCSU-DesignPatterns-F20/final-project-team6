@@ -16,8 +16,8 @@ import java.util.Scanner;
  */
 public class Cashier {
 
-    Food foodPick;
-    FoodFactory foodFactory;
+    private Food foodPick;
+    private FoodFactory foodFactory;
 
     /**
      * cashier takes order from customer, assigns to variables, sends to cash register then to the chef
@@ -35,10 +35,10 @@ public class Cashier {
             pick = scanner.nextInt();
         }
         // ** get empty food item to put toppings on
-        foodPick =  menu.items.get(pick -1).clone(false);
+        foodPick =  menu.getItem(pick -1).clone(false);
         System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type 0 to finish");
 
-        Food menuItem = menu.items.get(pick - 1);
+        Food menuItem = menu.getItem(pick - 1);
         // ** print available toppings
         menuItem.printToppings();
 

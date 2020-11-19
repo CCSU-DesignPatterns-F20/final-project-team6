@@ -12,7 +12,7 @@ public class Menu<T extends Food> {
 	public Iterator<T> iterator;
 
 	//menu will be in array
-	List<T> items = new ArrayList<T>();
+	private List<T> items = new ArrayList<T>();
 
 	public Menu() {
 
@@ -22,6 +22,10 @@ public class Menu<T extends Food> {
     }
 	public void addItem(T item) {
 		this.items.add(item);
+	}
+
+	public T getItem(int index){
+		return items.get(index);
 	}
 
 	public void printItems() {
