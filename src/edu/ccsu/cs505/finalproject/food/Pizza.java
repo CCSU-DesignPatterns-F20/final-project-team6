@@ -1,9 +1,24 @@
 package edu.ccsu.cs505.finalproject.food;
 
+enum Message
+{
+	DONE("Pizza is ready");
+	String m;
+
+	private Message(String m)
+	{
+		this.m=m;
+	}
+	public String getMessage()
+	{
+		return m;
+	}
+}
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern
  */
+
 public class Pizza extends Food {
 
 	/**
@@ -66,10 +81,16 @@ public class Pizza extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
-		String done="Pizza is ready";
+//		String done="Pizza is ready";
 
 //		pizza is done so notify observers
-		notifyObservers(done);
+		notifyObservers(Message.DONE.getMessage());
 	}
 
+}
+
+class test63{
+	public static void main(String [] args){
+	System.out.println(Message.DONE.getMessage());
+	}
 }
