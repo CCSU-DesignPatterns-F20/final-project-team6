@@ -30,31 +30,36 @@ public class Cashier {
         Menu<Food> menu = new Menu.Builder().Build();
 
         int pick = scanner.nextInt();
-        while (pick < 1 || pick > 2){
+        while (pick < 1 || pick > menu.getMenuSize()){
             System.out.println("Incorrect selection, try again");
             pick = scanner.nextInt();
         }
         // ** get empty food item to put toppings on
-        foodPick =  menu.getItem(pick -1).clone(false);
-        System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type 0 to finish");
+        foodPick =  menu.getItem(pick -1).clone();
 
-        Food menuItem = menu.getItem(pick - 1);
-        // ** print available toppings
-        menuItem.printToppings();
+        if(foodPick.isConfigurable())
+        {
+            System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type 0 to finish");
 
-        int intToppingIndex;
-        while (true) {
-            intToppingIndex = scanner.nextInt();
-            if (intToppingIndex == 0) {
-                break;
-            }else if(intToppingIndex > 0 && intToppingIndex < 5)
-            {
-                Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone();
-                foodPick.addTopping( topping );
-            }else{
-                System.out.println("Not a topping, try again");
+            Food menuItem = menu.getItem(pick - 1);
+            // ** print available toppings
+            menuItem.printToppings();
+
+            int intToppingIndex;
+            while (true) {
+                intToppingIndex = scanner.nextInt();
+                if (intToppingIndex == 0) {
+                    break;
+                }else if(intToppingIndex > 0 && intToppingIndex < 5)
+                {
+                    Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone();
+                    foodPick.addTopping( topping );
+                }else{
+                    System.out.println("Not a topping, try again");
+                }
             }
         }
+
 //        add visitor price here to add price of pizza and toppings
         System.out.println("So you'll have a " + foodPick.name() + " with "+ foodPick.getToppings()+
                 "? That will be $" + foodPick.getCost()+ ". Let me enter that into the cash register");
