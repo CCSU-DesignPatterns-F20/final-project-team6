@@ -21,11 +21,12 @@ public class Grinder extends Food {
 	}
 
 	@Override
-	public Food clone(Boolean deep) {
+	public Food clone() {
 		Food clone = new Grinder(this.cost);
-		if(deep){
-			clone.cloneToppings(this);
-		}
+
+		clone.cloneToppings(this);
+
+		clone.isConfigurable = this.isConfigurable;
 
 		return clone;
 	}

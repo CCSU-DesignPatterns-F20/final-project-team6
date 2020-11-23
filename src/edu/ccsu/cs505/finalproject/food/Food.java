@@ -15,6 +15,8 @@ public abstract class Food implements Cloneable {
 	protected List<Toppings> toppings;
 	private List<Observer> ob= new ArrayList<Observer>();
 	protected Double cost;
+	protected String menuName;
+	protected boolean isConfigurable = false;
 
 	/**
 	 * constructor
@@ -30,17 +32,17 @@ public abstract class Food implements Cloneable {
 	public abstract String name();
 
 	/**
-	 * @param clone
+	 * @param original object to copy toppings from
 	 * @return
 	 */
-	public Food cloneToppings(Food clone)
+	public Food cloneToppings(Food original)
 	{
-		for(Toppings topping : this.toppings){
+		for(Toppings topping : original.toppings){
 			Toppings top = (Toppings) topping.clone();
-			clone.addTopping(top);
+			this.addTopping(top);
 		}
 
-		return clone;
+		return original;
 	}
 
 	/**
@@ -59,10 +61,9 @@ public abstract class Food implements Cloneable {
 	};
 
 	/**
-	 * @param deep Boolean true, when you request a deep copy, false for shallow
 	 * @return cloned object
 	 */
-	public abstract Food clone(Boolean deep);
+	public abstract Food clone();
 
 	public double getCost(){
 		return cost;
@@ -221,5 +222,9 @@ public abstract class Food implements Cloneable {
 			System.out.printf("%d. %s            $ %,.2f \n", itemCount, t, t.getCost());
 			itemCount++;
 		}
+	}
+
+	public boolean isConfigurable(){
+		return isConfigurable;
 	}
 }
