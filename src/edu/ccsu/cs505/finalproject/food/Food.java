@@ -87,6 +87,7 @@ public abstract class Food implements Cloneable {
 
 	/**
 	 * method to add observer to the observer list for the observer pattern
+	 * will notify each observer when food is ready
 	 * @param o observer to attach
 	 */
 	public void attach(Observer o){
@@ -102,7 +103,7 @@ public abstract class Food implements Cloneable {
 	}
 
 	/**
-	 * method to notify a change to all observers
+	 * method to notify all observers when the food is done cooking/ready
 	 * @param s gives a message about the change
 	 */
 	public void notifyObservers(Message s){
