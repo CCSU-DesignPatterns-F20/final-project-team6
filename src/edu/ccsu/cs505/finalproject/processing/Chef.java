@@ -71,7 +71,7 @@ public class Chef implements Observer {
 	 * @param m will return a message updating the status of the food
 	 */
 	@Override
-	public void update(Enum m) {
+	public void update(Food.Message m) {
 //		this.status=s;
 		System.out.printf("Chef %s yells: %s!", this.name,  m.toString().toUpperCase());
 	}

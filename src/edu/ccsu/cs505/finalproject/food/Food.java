@@ -6,22 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
-enum Message
-{
-	PIZZADONE("Pizza is ready"),
-	GRINDERDONE("Grinder is ready");
-	String m;
-
-	private Message(String m)
-	{
-		this.m=m;
-	}
-	public String toString()
-	{
-		return m;
-	}
-}
 /**
  * Defines abstract Food with toppings
  * Part of Abstract Factory pattern and template pattern
@@ -243,5 +227,21 @@ public abstract class Food implements Cloneable {
 
 	public boolean isConfigurable(){
 		return isConfigurable;
+	}
+
+	public enum Message
+	{
+		PIZZADONE("Pizza is ready"),
+		GRINDERDONE("Grinder is ready");
+		String m;
+
+		private Message(String m)
+		{
+			this.m=m;
+		}
+		public String toString()
+		{
+			return m;
+		}
 	}
 }

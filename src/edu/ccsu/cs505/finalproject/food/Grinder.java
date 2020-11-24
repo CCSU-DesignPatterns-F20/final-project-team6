@@ -64,7 +64,7 @@ public class Grinder extends Food {
 		Thread.sleep(3000);
 //		String done="Grinder is ready to be Served!";
 
-//		pizza is done so notify observers
+//		grinder is done so notify observers
 		notifyObservers(Message.GRINDERDONE);
 	}
 }

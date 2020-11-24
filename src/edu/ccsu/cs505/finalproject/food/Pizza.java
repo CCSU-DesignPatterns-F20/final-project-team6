@@ -78,6 +78,6 @@ public class Pizza extends Food {
 
 class test63{
 	public static void main(String [] args){
-	System.out.println(Message.PIZZADONE);
+	System.out.println(Food.Message.PIZZADONE);
 	}
 }
