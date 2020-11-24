@@ -56,13 +56,7 @@ public class Menu<T extends Food> {
 			}
 			return false;
 		}
-
-		@Override
-		public void remove() {
-
-		}
-
-
+		
 		@Override
 		public T next() {
 
