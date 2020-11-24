@@ -62,9 +62,9 @@ public class Grinder extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing grinder in half using the knife.");
 		Thread.sleep(3000);
-		String done="Grinder is ready to be Served!";
+//		String done="Grinder is ready to be Served!";
 
 //		pizza is done so notify observers
-		notifyObservers(done);
+		notifyObservers(Message.GRINDERDONE);
 	}
 }

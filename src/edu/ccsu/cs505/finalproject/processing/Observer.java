@@ -10,5 +10,5 @@ public interface Observer {
      * method to update observers
      * @param s message of the update
      */
-    public void update(String s);
+    public void update(Enum s);
 }

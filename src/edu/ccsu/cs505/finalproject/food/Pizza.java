@@ -1,19 +1,6 @@
 package edu.ccsu.cs505.finalproject.food;
 
-enum Message
-{
-	DONE("Pizza is ready");
-	String m;
 
-	private Message(String m)
-	{
-		this.m=m;
-	}
-	public String getMessage()
-	{
-		return m;
-	}
-}
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern
@@ -84,13 +71,13 @@ public class Pizza extends Food {
 //		String done="Pizza is ready";
 
 //		pizza is done so notify observers
-		notifyObservers(Message.DONE.getMessage());
+		notifyObservers(Message.PIZZADONE);
 	}
 
 }
 
 class test63{
 	public static void main(String [] args){
-	System.out.println(Message.DONE.getMessage());
+	System.out.println(Message.PIZZADONE);
 	}
 }

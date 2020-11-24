@@ -6,6 +6,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
+enum Message
+{
+	PIZZADONE("Pizza is ready"),
+	GRINDERDONE("Grinder is ready");
+	String m;
+
+	private Message(String m)
+	{
+		this.m=m;
+	}
+	public String toString()
+	{
+		return m;
+	}
+}
 /**
  * Defines abstract Food with toppings
  * Part of Abstract Factory pattern and template pattern
@@ -89,7 +105,7 @@ public abstract class Food implements Cloneable {
 	 * method to notify a change to all observers
 	 * @param s gives a message about the change
 	 */
-	public void notifyObservers(String s){
+	public void notifyObservers(Message s){
 		for (Observer x: ob){
 			x.update(s);
 		}

@@ -1,6 +1,6 @@
 package edu.ccsu.cs505.finalproject.processing;
 
-import edu.ccsu.cs505.finalproject.food.Food;
+import edu.ccsu.cs505.finalproject.food.*;
 
 
 /**
@@ -68,11 +68,11 @@ public class Chef implements Observer {
 
 	/**
 	 * Will be called when food is ready
-	 * @param s will return a message updating the status of the food
+	 * @param m will return a message updating the status of the food
 	 */
 	@Override
-	public void update(String s) {
-		this.status=s;
-		System.out.printf("Chef %s yells: %s!", this.name,  s.toUpperCase());
+	public void update(Enum m) {
+//		this.status=s;
+		System.out.printf("Chef %s yells: %s!", this.name,  m.toString().toUpperCase());
 	}
 }
