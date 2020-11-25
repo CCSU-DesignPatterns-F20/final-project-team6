@@ -4,7 +4,7 @@ package edu.ccsu.cs505.finalproject.food;
  * Grinder, extends abstract Food
  * Part of Abstract Factory pattern
  */
-public class Grinder extends Food {
+public class Grinder extends Food implements FoodVisitable {
 
 	public Grinder() {
 		this.cost = 5.0;
@@ -66,5 +66,10 @@ public class Grinder extends Food {
 
 //		grinder is done so notify observers
 		notifyObservers(Message.GRINDERDONE);
+	}
+
+	@Override
+	public void accept(FoodVisitor visitor) {
+		visitor.visitGrinder(this);
 	}
 }

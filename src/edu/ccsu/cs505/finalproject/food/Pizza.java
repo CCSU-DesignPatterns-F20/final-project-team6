@@ -6,7 +6,7 @@ package edu.ccsu.cs505.finalproject.food;
  * Part of Abstract Factory pattern
  */
 
-public class Pizza extends Food {
+public class Pizza extends Food implements FoodVisitable {
 
 	/**
 	 * Pizza constructor
@@ -74,6 +74,10 @@ public class Pizza extends Food {
 		notifyObservers(Message.PIZZADONE);
 	}
 
+	@Override
+	public void accept(FoodVisitor visitor) {
+		visitor.visitPizza(this);
+	}
 }
 
 class test63{

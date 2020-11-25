@@ -37,7 +37,6 @@ public class Main {
                 .setEmail("email").buildCustomer();
         System.out.println(customer.toString());
 
-
         try{
             customer.orderFood();
         }
