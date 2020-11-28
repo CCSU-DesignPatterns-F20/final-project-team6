@@ -17,4 +17,8 @@ public class PriceVisitor implements FoodVisitor {
     public void visitTopping(Toppings topping) {
         this.totalPrice = this.totalPrice + topping.getCost();
     }
+
+    public String toString(){
+       return ("The total price is: $" + this.totalPrice);
+    }
 }

@@ -229,6 +229,8 @@ public abstract class Food implements Cloneable {
 		return isConfigurable;
 	}
 
+	public abstract void accept(FoodVisitor visitor);
+
 	public enum Message
 	{
 		PIZZADONE("Pizza is ready"),

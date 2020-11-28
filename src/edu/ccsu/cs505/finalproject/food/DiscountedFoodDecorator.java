@@ -38,4 +38,9 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 	public String toString(){
 		return "DiscountedFood (price: " + this.getCost() + " [decoratedFood=" + decoratedFood.toString() + "])";
 	}
+
+	@Override
+	public void accept(FoodVisitor visitor) {
+
+	}
 }
