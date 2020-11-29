@@ -27,6 +27,7 @@ public class Grinder extends Food implements FoodVisitable {
 		clone.cloneToppings(this);
 
 		clone.isConfigurable = this.isConfigurable;
+		clone.menuName = this.menuName;
 
 		return clone;
 	}

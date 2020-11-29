@@ -160,6 +160,9 @@ public abstract class Food implements Cloneable, FoodVisitable {
 		return result.toString();
 	}
 
+	public String getMenuName() {
+		return menuName;
+	}
 
 	/**
 	 * @return int

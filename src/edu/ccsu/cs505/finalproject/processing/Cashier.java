@@ -2,6 +2,7 @@ package edu.ccsu.cs505.finalproject.processing;
 
 import edu.ccsu.cs505.finalproject.food.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -37,6 +38,9 @@ public class Cashier {
 
         if(foodPick.isConfigurable())
         {
+            // ** start with no toppings
+            foodPick.setToppings(new ArrayList<Toppings>());
+
             System.out.println("Which topping would you like on your "+ foodPick +"? Enter one at a time.Type 0 to finish");
 
             Food menuItem = menu.getItem(pick - 1);

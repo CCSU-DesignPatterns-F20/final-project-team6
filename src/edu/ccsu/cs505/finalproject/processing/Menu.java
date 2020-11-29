@@ -39,7 +39,7 @@ public class Menu<T extends Food> {
 
 		while (menuIterator.hasNext()) {
 			Food f = menuIterator.next();
-			System.out.printf("%d. %s %s           $ %,.2f \n", itemCount, f.name(), f.getToppings(),  f.getCost());
+			System.out.printf("%d. %s %s           $ %,.2f \n", itemCount, f.getMenuName(), f.getToppings(),  f.getCost());
 			itemCount++;
 		}
 	}
@@ -100,7 +100,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("turkey"));
 			buildYourOwnPizza.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("build-your-own-pizza", buildYourOwnPizza, true);
+			prototypeFoodFactory.catalogBundle("build-your-own-pizza", "Build Your Own Pizza", buildYourOwnPizza, true);
 
 			//===
 			Food meatloversPizza = prototypeFoodFactory.makeFood("pizza");
@@ -112,7 +112,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("turkey"));
 			meatloversPizza.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("meatlovers-pizza", meatloversPizza, false);
+			prototypeFoodFactory.catalogBundle("meatlovers-pizza", "Meat Lover's Pizza", meatloversPizza, false);
 
 			//===
 			Food cheesePizza = prototypeFoodFactory.makeFood("pizza-discounted");
@@ -120,7 +120,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("cheese"));
 			cheesePizza.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("cheese-pizza", cheesePizza, false);
+			prototypeFoodFactory.catalogBundle("cheese-pizza", "Cheese Pizza", cheesePizza, false);
 
 			//===
 			Food buildYourOwnGrinder = prototypeFoodFactory.makeFood("grinder");
@@ -134,7 +134,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("turkey"));
 			buildYourOwnGrinder.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("build-your-own-grinder", buildYourOwnGrinder, true);
+			prototypeFoodFactory.catalogBundle("build-your-own-grinder", "Build Your Own Grinder", buildYourOwnGrinder, true);
 
 			//===
 			Food meatloversGrinder = prototypeFoodFactory.makeFood("grinder");
@@ -145,7 +145,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("turkey"));
 			meatloversGrinder.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("meatlovers-grinder", meatloversGrinder, false);
+			prototypeFoodFactory.catalogBundle("meatlovers-grinder", "Meat Lover's Grinder" , meatloversGrinder, false);
 
 			//===
 			Food plainGrinder = prototypeFoodFactory.makeFood("grinder");
@@ -153,7 +153,7 @@ public class Menu<T extends Food> {
 			list.add(prototypeFoodFactory.makeTopping("ham"));
 			plainGrinder.setToppings(list);
 
-			prototypeFoodFactory.catalogBundle("plain-grinder", plainGrinder, false);
+			prototypeFoodFactory.catalogBundle("plain-grinder", "Plain Grinder" , plainGrinder, false);
 
 			return createMenu();
 		}

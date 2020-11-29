@@ -64,8 +64,9 @@ public class PrototypeFoodFactory implements PrototypeFoodFactoryInterface{
 		toppingsLibrary.put(name, topping);
 	}
 
-	public void catalogBundle(String name, Food food, boolean isConfigurable){
+	public void catalogBundle(String name, String menuName, Food food, boolean isConfigurable){
 		food.isConfigurable = isConfigurable;
+		food.menuName = menuName;
 		bundlesLibrary.put(name, food);
 	}
 }

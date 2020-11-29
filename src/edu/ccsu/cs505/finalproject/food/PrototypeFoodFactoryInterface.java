@@ -6,5 +6,5 @@ public interface PrototypeFoodFactoryInterface extends FoodFactory{
 	public Food makeBundle(String name);
 	public void catalogFood(String name, Food food);
 	public void catalogTopping(String name, Toppings topping);
-	public void catalogBundle(String name, Food food, boolean isConfigurable);
+	public void catalogBundle(String name, String menuName, Food food, boolean isConfigurable);
 }
