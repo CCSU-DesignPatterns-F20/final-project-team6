@@ -4,13 +4,8 @@ public class PriceVisitor implements FoodVisitor {
     private double totalPrice = 0.0;
 
     @Override
-    public void visitPizza(Pizza pizza) {
-        this.totalPrice = this.totalPrice + pizza.getCost();
-    }
-
-    @Override
-    public void visitGrinder(Grinder grinder) {
-        this.totalPrice = this.totalPrice + grinder.getCost();
+    public void visitFood(Food food) {
+        this.totalPrice += food.getCost();
     }
 
     @Override
@@ -20,5 +15,9 @@ public class PriceVisitor implements FoodVisitor {
 
     public String toString(){
        return ("The total price is: $" + this.totalPrice);
+    }
+
+    public double getTotalPrice(){
+        return this.totalPrice;
     }
 }

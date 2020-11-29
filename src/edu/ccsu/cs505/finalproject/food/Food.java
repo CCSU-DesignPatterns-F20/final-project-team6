@@ -10,7 +10,7 @@ import java.util.List;
  * Defines abstract Food with toppings
  * Part of Abstract Factory pattern and template pattern
  */
-public abstract class Food implements Cloneable {
+public abstract class Food implements Cloneable, FoodVisitable {
 
 	protected List<Toppings> toppings;
 	private List<Observer> ob= new ArrayList<Observer>();
@@ -229,7 +229,12 @@ public abstract class Food implements Cloneable {
 		return isConfigurable;
 	}
 
-	public abstract void accept(FoodVisitor visitor);
+	public void accept(FoodVisitor visitor) {
+		visitor.visitFood(this);
+		for(Toppings topping:this.getToppings()){
+			topping.accept(visitor);
+		}
+	}
 
 	public enum Message
 	{

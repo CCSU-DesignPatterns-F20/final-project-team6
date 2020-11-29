@@ -2,7 +2,6 @@ package edu.ccsu.cs505.finalproject.processing;
 
 import edu.ccsu.cs505.finalproject.food.*;
 
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -61,21 +60,17 @@ public class Cashier {
 
         // add visitor price here to add price of pizza and toppings
 
-        FoodVisitor visitor = new PriceVisitor();
+        PriceVisitor visitor = new PriceVisitor();
         foodPick.accept(visitor);
-        List<Toppings> toppings = foodPick.getToppings();
-        for(Toppings topping : toppings)
-        {
-            topping.accept(visitor);
-        }
+
         System.out.println(visitor.toString());
 
         System.out.println("So you'll have a " + foodPick.name() + " with "+ foodPick.getToppings()+
-                "? That will be $" + foodPick.getCost()+ ". Let me enter that into the cash register");
+                "? That will be $" + visitor.getTotalPrice()+ ". Let me enter that into the cash register");
         Thread.sleep(3000);
 //        send to cashregister
         // TODO: send the item price to cash register
-        if(processTransaction(foodPick.getCost())) // ** no item price yet
+        if(processTransaction(visitor.getTotalPrice()))
         {
             System.out.println("Sending to the chef now");
             Thread.sleep(3000);

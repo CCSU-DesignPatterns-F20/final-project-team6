@@ -73,11 +73,6 @@ public class Pizza extends Food implements FoodVisitable {
 //		pizza is done so notify observers
 		notifyObservers(Message.PIZZADONE);
 	}
-
-	@Override
-	public void accept(FoodVisitor visitor) {
-		visitor.visitPizza(this);
-	}
 }
 
 class test63{

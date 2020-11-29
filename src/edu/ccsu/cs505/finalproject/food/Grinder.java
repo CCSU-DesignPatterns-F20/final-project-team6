@@ -67,9 +67,4 @@ public class Grinder extends Food implements FoodVisitable {
 //		grinder is done so notify observers
 		notifyObservers(Message.GRINDERDONE);
 	}
-
-	@Override
-	public void accept(FoodVisitor visitor) {
-		visitor.visitGrinder(this);
-	}
 }

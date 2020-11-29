@@ -1,7 +1,6 @@
 package edu.ccsu.cs505.finalproject.food;
 
 public interface FoodVisitor {
-     void visitPizza(Pizza pizza);
-     void visitGrinder(Grinder grinder);
+     void visitFood(Food food);
      void visitTopping(Toppings topping);
 }
