@@ -6,27 +6,28 @@ package edu.ccsu.cs505.finalproject.food;
  */
 public class Grinder extends Food {
 
-	/**
-	 * @param obj Object to compare
-	 * @return true if equal, false otherwise
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Grinder))
-		{ return false; }
-		else if(obj == this)
-		{ return true; }
-		else {
-			Grinder g = (Grinder) obj;
-			return (this.getToppings().equals(((Grinder) obj).getToppings()));}
+	public Grinder() {
+		this.cost = 5.0;
 	}
 
-	/**
-	 * @return int
-	 */
 	@Override
-	public int hashCode() {
-		return super.getToppings().hashCode();
+	public String name() {
+		return "Grinder";
+	}
+
+	public Grinder(Double price)
+	{
+		this.cost = price;
+	}
+
+	@Override
+	public Food clone(Boolean deep) {
+		Food clone = new Grinder(this.cost);
+		if(deep){
+			clone.cloneToppings(this);
+		}
+
+		return clone;
 	}
 
 	/**
@@ -60,7 +61,9 @@ public class Grinder extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing grinder in half using the knife.");
 		Thread.sleep(3000);
-		System.out.println("Grinder is ready to be Served!");
-		Thread.sleep(3000);
+		String done="Grinder is ready to be Served!";
+
+//		pizza is done so notify observers
+		notifyObservers(done);
 	}
 }

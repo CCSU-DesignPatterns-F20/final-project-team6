@@ -1,6 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
 
 
+import edu.ccsu.cs505.finalproject.food.Food;
+
 /**
  * Inperson is one of the concrete classes that implements orderingstrategy. It is part of the
  * strategy design pattern. Inperson simulates a customer ordering food in person. When order
@@ -16,7 +18,11 @@ public class InPerson implements OrderingStrategy {
     public void orderFood() throws Exception {
 
         System.out.println("Hello thank you for coming to our restaurant. Here are the items we have today");
-        Menu.showMenu();
+
+        Menu<Food> menu = new Menu.Builder().Build();
+
+        menu.printItems();
+
         Cashier cashier = new Cashier();
         cashier.processOrder();
     }
@@ -26,7 +32,7 @@ public class InPerson implements OrderingStrategy {
      */
     @Override
     public String toString() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 
     /**

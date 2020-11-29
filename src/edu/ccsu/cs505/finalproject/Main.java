@@ -12,19 +12,27 @@ public class Main {
     public static void main(String[] args) {
 //        find out customer's name
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello, what is your name?");
-        String name = scanner.nextLine();
+        System.out.println("Hello, what is your first name?");
+        String firstName = scanner.nextLine();
+        System.out.println("And your last name?");
+        String lastName = scanner.nextLine();
 
         System.out.println("How will you be ordering today? \n Type 1 for in person. \n Type 2 for by phone.");
         int selection = scanner.nextInt();
 
-        OrderingStrategy strategy;
+        OrderingStrategy orderingStrategy;
         if(selection ==1){
-             strategy = new InPerson();
+             orderingStrategy = new InPerson();
         }else{
-            strategy = new ByPhone();
+            orderingStrategy = new ByPhone();
         }
-        Customer customer= new Customer(name, strategy);
+
+        Customer customer = new Customer.CustomerBuilder(firstName, lastName, orderingStrategy)
+                .setAddress("Home")
+                .setPhoneNumber("012-345-6789")
+                .setEmail("email").buildCustomer();
+        System.out.println(customer.toString());
+
 
         try{
             customer.orderFood();

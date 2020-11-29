@@ -7,29 +7,31 @@ package edu.ccsu.cs505.finalproject.food;
 public class Pizza extends Food {
 
 	/**
-	 * @param obj Object to compare
-	 * @return true if equal, false otherwise
+	 * Pizza constructor
 	 */
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Pizza))
-		{ return false; }
-		else if(obj == this)
-		{ return true; }
-		else {
-			Pizza p = (Pizza) obj;
-			return (this.getToppings().equals(((Pizza) obj).getToppings()));}
+	public Pizza() {
+		this.cost = 10.0;
 	}
 
-
-	/**
-	 * @return int hashcode
-	 */
 	@Override
-	public int hashCode() {
-		return super.getToppings().hashCode();
+	public String name() {
+		return "Pizza";
 	}
 
+	public Pizza(double price) {
+		this.cost = price;
+	}
+
+	@Override
+	public Food clone(Boolean deep) {
+		Food clone = new Pizza(this.cost);
+
+		if(deep){
+			clone.cloneToppings(this);
+		}
+
+		return clone;
+	}
 
 	/**
 	 * Template Pattern, implementation of a hook method
@@ -64,7 +66,10 @@ public class Pizza extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
-		System.out.println("Pizza is ready to be Served!");
+		String done="Pizza is ready";
+
+//		pizza is done so notify observers
+		notifyObservers(done);
 	}
 
 }

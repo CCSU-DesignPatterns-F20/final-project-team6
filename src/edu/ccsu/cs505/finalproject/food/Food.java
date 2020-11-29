@@ -1,25 +1,98 @@
 package edu.ccsu.cs505.finalproject.food;
 
+import edu.ccsu.cs505.finalproject.processing.Observer;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
  * Defines abstract Food with toppings
- * Part of Abstract Factory pattern
+ * Part of Abstract Factory pattern and template pattern
  */
-public abstract class Food {
+public abstract class Food implements Cloneable {
 
-	private List<String> toppings;
+	protected List<Toppings> toppings;
+	private List<Observer> ob= new ArrayList<Observer>();
+	protected Double cost;
 
 	/**
 	 * constructor
 	 */
 	public Food()
 	{
-		this.toppings = new ArrayList<String>();
+		this.toppings = new ArrayList<Toppings>();
 	}
 
+	/**
+	 * @return name of the food
+	 */
+	public abstract String name();
+
+	/**
+	 * @param clone
+	 * @return
+	 */
+	public Food cloneToppings(Food clone)
+	{
+		for(Toppings topping : this.toppings){
+			Toppings top = (Toppings) topping.clone();
+			clone.addTopping(top);
+		}
+
+		return clone;
+	}
+
+	/**
+	 * @param toppings list of toppings to add
+	 */
+	public void setToppings(List<Toppings> toppings){
+		this.toppings = toppings;
+	}
+
+
+	/**
+	 * constructor
+	 */
+	public Food(Double price){
+		this.cost = price;
+	};
+
+	/**
+	 * @param deep Boolean true, when you request a deep copy, false for shallow
+	 * @return cloned object
+	 */
+	public abstract Food clone(Boolean deep);
+
+	public double getCost(){
+		return cost;
+	}
+
+	/**
+	 * method to add observer to the observer list for the observer pattern
+	 * @param o observer to attach
+	 */
+	public void attach(Observer o){
+		ob.add(o);
+	}
+
+	/**
+	 * method to remove observer from observer list for the observer pattern
+	 * @param o observer to detach
+	 */
+	public void detach(Observer o){
+		ob.remove(o);
+	}
+
+	/**
+	 * method to notify a change to all observers
+	 * @param s gives a message about the change
+	 */
+	public void notifyObservers(String s){
+		for (Observer x: ob){
+			x.update(s);
+		}
+	}
 	/**
 	 * Template method for food preparation with hook methods
 	 * @throws InterruptedException
@@ -34,14 +107,14 @@ public abstract class Food {
 	/**
 	 * @param topping list of food toppings as Strings
 	 */
-	public void addTopping(String topping){
+	public void addTopping(Toppings topping){
 		this.toppings.add( topping );
 	}
 
 	/**
 	 * @return list of toppings
 	 */
-	public List<String> getToppings()
+	public List<Toppings> getToppings()
 	{
 		return this.toppings;
 	}
@@ -51,7 +124,7 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	private void placeToppings() throws InterruptedException {
-		for ( String topping : toppings) {
+		for ( Toppings topping : toppings) {
 			System.out.println(("Adding " + topping));
 			Thread.sleep(3000);
 
@@ -63,12 +136,12 @@ public abstract class Food {
 	 */
 	public String toString()
 	{
-		StringBuilder result = new StringBuilder(this.getClass().getSimpleName());
+		StringBuilder result = new StringBuilder(this.name());
 
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");
 			// ** TODO: iterator pattern
-			Iterator<String> toppingsIterator = this.toppings.iterator();
+			Iterator<Toppings> toppingsIterator = this.toppings.iterator();
 
 			while(toppingsIterator.hasNext())
 			{
@@ -85,6 +158,35 @@ public abstract class Food {
 		return result.toString();
 	}
 
+
+	/**
+	 * @return int
+	 */
+	@Override
+	public int hashCode() {
+		return this.getToppings().hashCode();
+	}
+
+	/**
+	 * @param obj Object to compare
+	 * @return true if equal, false otherwise
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Food)){
+			return false;
+		}
+
+		if( !this.getClass().toString().equalsIgnoreCase(obj.getClass().toString()) ){
+			return false;
+		}
+		if(obj == this){
+			return true;
+		}
+		else {
+			Food food = (Food) obj;
+			return (this.getToppings().equals(((Food) food).getToppings()));}
+	}
 
 	/**
 	 * Abstract hook method for Template Pattern, it needs to be implemented by all food items
@@ -105,4 +207,18 @@ public abstract class Food {
 	 * @throws InterruptedException
 	 */
 	protected abstract void slice() throws InterruptedException;
+
+	/**
+	 * prints Food item toppings to choose from
+	 */
+	public void printToppings() {
+		int itemCount=1;
+
+		Iterator<Toppings> toppingsIterator = this.toppings.listIterator();
+
+		while (toppingsIterator.hasNext()) {
+			System.out.printf("%d. %s\n", itemCount, toppingsIterator.next());
+			itemCount++;
+		}
+	}
 }

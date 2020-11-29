@@ -1,6 +1,8 @@
 package edu.ccsu.cs505.finalproject.processing;
 
 
+import edu.ccsu.cs505.finalproject.food.Food;
+
 /**
  * ByPhone is one of the concrete classes that implements orderingstrategy. It is part of the
  * strategy design pattern. Inperson simulates a customer ordering food in person. When order
@@ -16,7 +18,16 @@ public class ByPhone implements OrderingStrategy {
     public void orderFood() throws Exception {
         System.out.println("phone rings");
         System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
-        Menu.showMenu();
+
+        Menu<Food> m = new Menu.Builder().Build();
+        Iterator<Food> menuIterator = m.iterator();
+
+        int itemCount=1;
+        while (menuIterator.hasNext()) {
+            System.out.print(itemCount+" ");
+            System.out.println(menuIterator.next());
+            itemCount++;
+        }
         Cashier cashier=new Cashier();
         cashier.processOrder();
     }
@@ -26,7 +37,7 @@ public class ByPhone implements OrderingStrategy {
      * @return returns class name
      */
     @Override
-    public String toString() { return this.getClass().getName(); }
+    public String toString() { return this.getClass().getSimpleName(); }
 
     /**
      *

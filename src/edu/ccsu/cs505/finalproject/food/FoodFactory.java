@@ -7,7 +7,7 @@ public interface FoodFactory {
 
 	/**
 	 * Produces different types of Food based on input
-	 * @param type
+	 * @param type of Food object to be created
 	 * @return Food
 	 * @throws Exception when unrecognized food type is passed in as a parameter
 	 */
