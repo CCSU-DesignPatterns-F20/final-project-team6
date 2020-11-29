@@ -234,8 +234,12 @@ public abstract class Food implements Cloneable, FoodVisitable {
 
 	public void accept(FoodVisitor visitor) {
 		visitor.visitFood(this);
-		for(Toppings topping:this.getToppings()){
-			topping.accept(visitor);
+
+		// ** only include toppings price if item is not configurable
+		if(!this.isConfigurable){
+			for(Toppings topping:this.getToppings()){
+				topping.accept(visitor);
+			}
 		}
 	}
 

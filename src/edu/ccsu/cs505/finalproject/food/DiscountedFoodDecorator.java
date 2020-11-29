@@ -42,7 +42,7 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 
 	@Override
 	public void accept(FoodVisitor visitor) {
-		visitor.visitFood(decoratedFood);
+		visitor.visitFood(this);
 		for(Toppings topping:decoratedFood.getToppings()){
 			topping.accept(visitor);
 		}

@@ -37,9 +37,12 @@ public class Menu<T extends Food> {
 		int itemCount=1;
 		Iterator<T> menuIterator = this.iterator();
 
+		PriceVisitor priceVisitor;
 		while (menuIterator.hasNext()) {
 			Food f = menuIterator.next();
-			System.out.printf("%d. %s %s           $ %,.2f \n", itemCount, f.getMenuName(), f.getToppings(),  f.getCost());
+			priceVisitor = new PriceVisitor();
+			f.accept(priceVisitor);
+			System.out.printf("%d. %s %s          %s $%,.2f \n", itemCount, f.getMenuName(), f.getToppings(), f.isConfigurable() ? "base price:" : "",  priceVisitor.getTotalPrice());
 			itemCount++;
 		}
 	}
