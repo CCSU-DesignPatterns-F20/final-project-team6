@@ -1,5 +1,6 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+import edu.ccsu.cs505.finalproject.Codes;
 import edu.ccsu.cs505.finalproject.food.*;
 
 import java.util.ArrayList;
@@ -42,7 +43,8 @@ public class Menu<T extends Food> {
 			Food f = menuIterator.next();
 			priceVisitor = new PriceVisitor();
 			f.accept(priceVisitor);
-			System.out.printf("%d. %s %s          %s $%,.2f \n", itemCount, f.getMenuName(), f.getToppings(), f.isConfigurable() ? "base price:" : "",  priceVisitor.getTotalPrice());
+			System.out.printf("%s%d.%s %-30s %s          $%,.2f %s\n", Codes.ANSI_WHITE, itemCount, Codes.ANSI_GREEN, f.getMenuName(), Codes.ANSI_RED,  priceVisitor.getTotalPrice(), f.isConfigurable() ? Codes.ANSI_BLUE + "(base price)" + Codes.ANSI_RESET : "           ");
+			System.out.printf("%s   %s%s \n", Codes.ANSI_WHITE, f.getToppings() , Codes.ANSI_RESET);
 			itemCount++;
 		}
 	}
