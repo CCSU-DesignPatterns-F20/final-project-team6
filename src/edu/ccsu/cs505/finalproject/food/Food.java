@@ -33,7 +33,7 @@ public abstract class Food implements Cloneable, FoodVisitable {
 
 	/**
 	 * @param original object to copy toppings from
-	 * @return
+	 * @return the original Food
 	 */
 	public Food cloneToppings(Food original)
 	{
@@ -65,6 +65,9 @@ public abstract class Food implements Cloneable, FoodVisitable {
 	 */
 	public abstract Food clone();
 
+	/**
+	 * @return the cost of Food
+	 */
 	public double getCost(){
 		return cost;
 	}
@@ -228,14 +231,27 @@ public abstract class Food implements Cloneable, FoodVisitable {
 		}
 	}
 
+	/**
+	 * @return true if the food item is a build-you-own type, false if it can only be sold as-is
+	 */
 	public boolean isConfigurable(){
 		return isConfigurable;
 	}
 
+	/**
+	 * @param configurable set to false one configurable item is configured
+	 */
+	public void setIsConfigurable(boolean configurable){
+		this.isConfigurable = configurable;
+	}
+
+	/**
+	 * @param visitor part of Visitor pattern
+	 */
 	public void accept(FoodVisitor visitor) {
 		visitor.visitFood(this);
 
-		// ** only include toppings price if item is not configurable
+		// ** only visit toppings if item is not configurable
 		if(!this.isConfigurable){
 			for(Toppings topping:this.getToppings()){
 				topping.accept(visitor);

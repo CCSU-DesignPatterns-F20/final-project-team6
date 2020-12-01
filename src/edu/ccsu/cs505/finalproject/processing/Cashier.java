@@ -1,5 +1,6 @@
 package edu.ccsu.cs505.finalproject.processing;
 
+import edu.ccsu.cs505.finalproject.Codes;
 import edu.ccsu.cs505.finalproject.food.*;
 
 import java.util.ArrayList;
@@ -65,15 +66,13 @@ public class Cashier {
         // add visitor price here to add price of pizza and toppings
 
         PriceVisitor visitor = new PriceVisitor();
+        foodPick.setIsConfigurable( false ); // ** to have the price calculated correctly, as price visitor only visits toppings of already configured Food items
         foodPick.accept(visitor);
 
-        System.out.println(visitor.toString());
-
-        System.out.println("So you'll have a " + foodPick.name() + " with "+ foodPick.getToppings()+
-                "? That will be $" + visitor.getTotalPrice()+ ". Let me enter that into the cash register");
+        System.out.printf("So you'll have a %s with %s? That will be %s$%.2f%s. Let me enter that into the cash register.\n", foodPick.name(), foodPick.getToppings(), Codes.ANSI_GREEN, visitor.getTotalPrice(), Codes.ANSI_RESET);
         Thread.sleep(3000);
-//        send to cashregister
-        // TODO: send the item price to cash register
+
+        // ** send the item price to cash register
         if(processTransaction(visitor.getTotalPrice()))
         {
             System.out.println("Sending to the chef now");
@@ -89,17 +88,16 @@ public class Cashier {
     /**
      * private method to create chef and send the order to cook
      */
-        private void sendToChef(){
-            Chef chef=new Chef("Bobby Flay");
+    private void sendToChef() {
+        Chef chef = new Chef("Bobby Flay");
 
-//            attach chef observer to food
-
-            foodPick.attach(chef);
-            try {
-                chef.getOrder(foodPick);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        // attach chef observer to food
+        foodPick.attach(chef);
+        try {
+            chef.getOrder(foodPick);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

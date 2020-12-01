@@ -1,10 +1,13 @@
 package edu.ccsu.cs505.finalproject.food;
 
+/**
+ * Part of Prototype pattern
+ * interface of PrototypeFoodFactory
+ */
 public interface PrototypeFoodFactoryInterface extends FoodFactory{
-	public Food makeFood(String name);
-	public Toppings makeTopping(String name);
-	public Food makeBundle(String name);
-	public void catalogFood(String name, Food food);
-	public void catalogTopping(String name, Toppings topping);
-	public void catalogBundle(String name, String menuName, Food food, boolean isConfigurable);
+	Toppings makeTopping(String name);
+	Food makeBundle(String name);
+	void catalogFood(String name, Food food);
+	void catalogTopping(String name, Toppings topping);
+	void catalogBundle(String name, String menuName, Food food, boolean isConfigurable);
 }

@@ -11,5 +11,5 @@ public interface FoodFactory {
 	 * @return Food
 	 * @throws Exception when unrecognized food type is passed in as a parameter
 	 */
-	public Food makeFood(String type) throws Exception;
+	Food makeFood(String type) throws Exception;
 }

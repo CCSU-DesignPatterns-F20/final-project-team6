@@ -4,7 +4,7 @@ package edu.ccsu.cs505.finalproject.food;
  * Food decorator to apply discounts to existing food items
  */
 public class DiscountedFoodDecorator extends FoodDecorator{
-	private Double percentageDiscount;
+	final private Double percentageDiscount;
 
 	/**
 	 * @param discountedFood part of Decorator pattern
@@ -16,7 +16,8 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 	}
 
 	/**
-	 * @return
+	 * @return decorated cost
+	 * it subtracts the percentage passed into constructor from the original Food price
 	 */
 	public double getCost()
 	{

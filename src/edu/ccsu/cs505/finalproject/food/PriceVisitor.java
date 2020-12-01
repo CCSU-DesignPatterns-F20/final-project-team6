@@ -14,7 +14,7 @@ public class PriceVisitor implements FoodVisitor {
     }
 
     public String toString(){
-       return ("The total price is: $" + this.totalPrice);
+       return String.format("The total price is: $%.2f", this.totalPrice);
     }
 
     public double getTotalPrice(){
