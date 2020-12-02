@@ -17,7 +17,6 @@ import java.util.Scanner;
 public class Cashier {
 
     private Food foodPick;
-    private FoodFactory foodFactory;
 
     /**
      * cashier takes order from customer, assigns to variables, sends to cash register then to the chef
