@@ -32,6 +32,7 @@ public class Cashier {
         int pick = scanner.nextInt();
         while (pick < 1 || pick > menu.getMenuSize()){
             System.out.println("Incorrect selection, try again");
+            menu.printItems();
             pick = scanner.nextInt();
         }
         // ** get empty food item to put toppings on
