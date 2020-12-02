@@ -145,7 +145,7 @@ public abstract class Food implements Cloneable, FoodVisitable {
 
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");
-			// ** TODO: iterator pattern
+
 			Iterator<Toppings> toppingsIterator = this.toppings.iterator();
 
 			while(toppingsIterator.hasNext())

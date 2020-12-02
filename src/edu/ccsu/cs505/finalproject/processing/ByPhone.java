@@ -17,18 +17,14 @@ public class ByPhone implements OrderingStrategy {
     @Override
     public void orderFood() throws Exception {
         System.out.println("phone rings");
-        System.out.println("Hello, thank you for calling our restaurant. Here are the items we have today");
+        Thread.sleep(200);
+        System.out.println("Thank you for calling our restaurant. Here are the items we have today");
+        Thread.sleep(2000);
+        Menu<Food> menu = new Menu.Builder().Build();
 
-        Menu<Food> m = new Menu.Builder().Build();
-        Iterator<Food> menuIterator = m.iterator();
+        menu.printItems();
 
-        int itemCount=1;
-        while (menuIterator.hasNext()) {
-            System.out.print(itemCount+" ");
-            System.out.println(menuIterator.next());
-            itemCount++;
-        }
-        Cashier cashier=new Cashier();
+        Cashier cashier = new Cashier();
         cashier.processOrder();
     }
 
