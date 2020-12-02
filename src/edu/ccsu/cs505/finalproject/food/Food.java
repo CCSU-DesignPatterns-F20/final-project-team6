@@ -246,6 +246,7 @@ public abstract class Food implements Cloneable, FoodVisitable {
 	}
 
 	/**
+	 * public void accept, accepts visitor of type FoodVisitor
 	 * @param visitor part of Visitor pattern
 	 */
 	public void accept(FoodVisitor visitor) {

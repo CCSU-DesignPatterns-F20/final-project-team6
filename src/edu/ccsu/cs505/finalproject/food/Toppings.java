@@ -57,6 +57,10 @@ public abstract class Toppings implements FoodVisitable{
         }
     }
 
+    /**
+     * public void accept, accepts visitor of type FoodVisitor
+     * @param visitor part of Visitor pattern
+     */
     @Override
     public void accept(FoodVisitor visitor) {
         visitor.visitTopping(this);
