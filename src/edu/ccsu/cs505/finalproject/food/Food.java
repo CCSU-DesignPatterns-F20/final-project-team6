@@ -10,11 +10,13 @@ import java.util.List;
  * Defines abstract Food with toppings
  * Part of Abstract Factory pattern and template pattern
  */
-public abstract class Food implements Cloneable {
+public abstract class Food implements Cloneable, FoodVisitable {
 
 	protected List<Toppings> toppings;
 	private List<Observer> ob= new ArrayList<Observer>();
 	protected Double cost;
+	protected String menuName;
+	protected boolean isConfigurable = false;
 
 	/**
 	 * constructor
@@ -30,17 +32,17 @@ public abstract class Food implements Cloneable {
 	public abstract String name();
 
 	/**
-	 * @param clone
-	 * @return
+	 * @param original object to copy toppings from
+	 * @return the original Food
 	 */
-	public Food cloneToppings(Food clone)
+	public Food cloneToppings(Food original)
 	{
-		for(Toppings topping : this.toppings){
+		for(Toppings topping : original.toppings){
 			Toppings top = (Toppings) topping.clone();
-			clone.addTopping(top);
+			this.addTopping(top);
 		}
 
-		return clone;
+		return original;
 	}
 
 	/**
@@ -59,17 +61,20 @@ public abstract class Food implements Cloneable {
 	};
 
 	/**
-	 * @param deep Boolean true, when you request a deep copy, false for shallow
 	 * @return cloned object
 	 */
-	public abstract Food clone(Boolean deep);
+	public abstract Food clone();
 
+	/**
+	 * @return the cost of Food
+	 */
 	public double getCost(){
 		return cost;
 	}
 
 	/**
 	 * method to add observer to the observer list for the observer pattern
+	 * will notify each observer when food is ready
 	 * @param o observer to attach
 	 */
 	public void attach(Observer o){
@@ -85,10 +90,10 @@ public abstract class Food implements Cloneable {
 	}
 
 	/**
-	 * method to notify a change to all observers
+	 * method to notify all observers when the food is done cooking/ready
 	 * @param s gives a message about the change
 	 */
-	public void notifyObservers(String s){
+	public void notifyObservers(Message s){
 		for (Observer x: ob){
 			x.update(s);
 		}
@@ -140,7 +145,7 @@ public abstract class Food implements Cloneable {
 
 		if(!this.toppings.isEmpty()){
 			result.append("[toppings:");
-			// ** TODO: iterator pattern
+
 			Iterator<Toppings> toppingsIterator = this.toppings.iterator();
 
 			while(toppingsIterator.hasNext())
@@ -158,6 +163,9 @@ public abstract class Food implements Cloneable {
 		return result.toString();
 	}
 
+	public String getMenuName() {
+		return menuName;
+	}
 
 	/**
 	 * @return int
@@ -217,8 +225,54 @@ public abstract class Food implements Cloneable {
 		Iterator<Toppings> toppingsIterator = this.toppings.listIterator();
 
 		while (toppingsIterator.hasNext()) {
-			System.out.printf("%d. %s\n", itemCount, toppingsIterator.next());
+			Toppings t=toppingsIterator.next();
+			System.out.printf("%d. %s            $ %,.2f \n", itemCount, t, t.getCost());
 			itemCount++;
+		}
+	}
+
+	/**
+	 * @return true if the food item is a build-you-own type, false if it can only be sold as-is
+	 */
+	public boolean isConfigurable(){
+		return isConfigurable;
+	}
+
+	/**
+	 * @param configurable set to false one configurable item is configured
+	 */
+	public void setIsConfigurable(boolean configurable){
+		this.isConfigurable = configurable;
+	}
+
+	/**
+	 * public void accept, accepts visitor of type FoodVisitor
+	 * @param visitor part of Visitor pattern
+	 */
+	public void accept(FoodVisitor visitor) {
+		visitor.visitFood(this);
+
+		// ** only visit toppings if item is not configurable
+		if(!this.isConfigurable){
+			for(Toppings topping:this.getToppings()){
+				topping.accept(visitor);
+			}
+		}
+	}
+
+	public enum Message
+	{
+		PIZZADONE("Pizza is ready"),
+		GRINDERDONE("Grinder is ready");
+		String m;
+
+		private Message(String m)
+		{
+			this.m=m;
+		}
+		public String toString()
+		{
+			return m;
 		}
 	}
 }

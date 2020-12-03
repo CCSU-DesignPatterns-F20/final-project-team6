@@ -1,8 +1,7 @@
 package edu.ccsu.cs505.finalproject.food;
 
 /**
- * Cheese is a topping that can be put on a Grinder. Will be part of the composite and complex builder
- * patterns in sprint 3
+ * Cheese is a topping that can be put on a Grinder for an extra cost
  */
 public class Cheese extends Toppings{
 

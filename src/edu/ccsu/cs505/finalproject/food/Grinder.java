@@ -4,7 +4,7 @@ package edu.ccsu.cs505.finalproject.food;
  * Grinder, extends abstract Food
  * Part of Abstract Factory pattern
  */
-public class Grinder extends Food {
+public class Grinder extends Food implements FoodVisitable {
 
 	public Grinder() {
 		this.cost = 5.0;
@@ -21,11 +21,13 @@ public class Grinder extends Food {
 	}
 
 	@Override
-	public Food clone(Boolean deep) {
+	public Food clone() {
 		Food clone = new Grinder(this.cost);
-		if(deep){
-			clone.cloneToppings(this);
-		}
+
+		clone.cloneToppings(this);
+
+		clone.isConfigurable = this.isConfigurable;
+		clone.menuName = this.menuName;
 
 		return clone;
 	}
@@ -61,9 +63,8 @@ public class Grinder extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing grinder in half using the knife.");
 		Thread.sleep(3000);
-		String done="Grinder is ready to be Served!";
 
-//		pizza is done so notify observers
-		notifyObservers(done);
+//		grinder is done so notify observers
+		notifyObservers(Message.GRINDERDONE);
 	}
 }

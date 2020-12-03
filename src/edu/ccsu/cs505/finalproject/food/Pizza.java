@@ -1,16 +1,18 @@
 package edu.ccsu.cs505.finalproject.food;
 
+
 /**
  * Pizza, extends abstract Food
  * Part of Abstract Factory pattern
  */
-public class Pizza extends Food {
+
+public class Pizza extends Food implements FoodVisitable {
 
 	/**
 	 * Pizza constructor
 	 */
 	public Pizza() {
-		this.cost = 10.0;
+		this.cost = 20.0;
 	}
 
 	@Override
@@ -23,12 +25,13 @@ public class Pizza extends Food {
 	}
 
 	@Override
-	public Food clone(Boolean deep) {
+	public Food clone() {
 		Food clone = new Pizza(this.cost);
 
-		if(deep){
-			clone.cloneToppings(this);
-		}
+		clone.cloneToppings(this);
+
+		clone.isConfigurable = this.isConfigurable;
+		clone.menuName = this.menuName;
 
 		return clone;
 	}
@@ -66,10 +69,15 @@ public class Pizza extends Food {
 	protected void slice() throws InterruptedException {
 		System.out.println("Slicing up the pizza using the pizza cutter.");
 		Thread.sleep(3000);
-		String done="Pizza is ready";
+//		String done="Pizza is ready";
 
 //		pizza is done so notify observers
-		notifyObservers(done);
+		notifyObservers(Message.PIZZADONE);
 	}
+}
 
+class test63{
+	public static void main(String [] args){
+	System.out.println(Food.Message.PIZZADONE);
+	}
 }

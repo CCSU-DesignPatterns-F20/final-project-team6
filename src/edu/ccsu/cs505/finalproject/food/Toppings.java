@@ -3,11 +3,13 @@ package edu.ccsu.cs505.finalproject.food;
 /**
  * abstract class for all of the pizza and grinder toppings
  */
-public abstract class Toppings {
+public abstract class Toppings implements FoodVisitable{
     protected Double cost;
 
     public abstract Object clone();
-
+    public double getCost(){
+        return cost;
+    }
 
     /**
      *
@@ -53,5 +55,14 @@ public abstract class Toppings {
             Toppings t = (Toppings) x;
             return (this.cost.equals(t.cost) && this.toString().equals(t.toString()));
         }
+    }
+
+    /**
+     * public void accept, accepts visitor of type FoodVisitor
+     * @param visitor part of Visitor pattern
+     */
+    @Override
+    public void accept(FoodVisitor visitor) {
+        visitor.visitTopping(this);
     }
 }

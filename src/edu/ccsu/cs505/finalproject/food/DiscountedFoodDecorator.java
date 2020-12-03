@@ -4,7 +4,7 @@ package edu.ccsu.cs505.finalproject.food;
  * Food decorator to apply discounts to existing food items
  */
 public class DiscountedFoodDecorator extends FoodDecorator{
-	private Double percentageDiscount;
+	final private Double percentageDiscount;
 
 	/**
 	 * @param discountedFood part of Decorator pattern
@@ -16,7 +16,8 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 	}
 
 	/**
-	 * @return
+	 * @return decorated cost
+	 * it subtracts the percentage passed into constructor from the original Food price
 	 */
 	public double getCost()
 	{
@@ -24,14 +25,27 @@ public class DiscountedFoodDecorator extends FoodDecorator{
 	}
 
 	@Override
-	public Food clone(Boolean deep) {
-		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood.clone(deep), this.percentageDiscount);
+	public Food clone() {
+		DiscountedFoodDecorator clone = new DiscountedFoodDecorator(decoratedFood.clone(), this.percentageDiscount);
 
-		if(deep){
-			this.cloneToppings(clone);
-		}
+		clone.cloneToppings(this);
+
+		clone.isConfigurable = this.isConfigurable;
+		clone.menuName = this.menuName;
 
 		return clone;
 	}
 
+	@Override
+	public String toString(){
+		return "DiscountedFood (price: " + this.getCost() + " [decoratedFood=" + decoratedFood.toString() + "])";
+	}
+
+	@Override
+	public void accept(FoodVisitor visitor) {
+		visitor.visitFood(this);
+		for(Toppings topping:decoratedFood.getToppings()){
+			topping.accept(visitor);
+		}
+	}
 }

@@ -1,7 +1,5 @@
 package edu.ccsu.cs505.finalproject.processing;
 
-import java.util.Objects;
-
 /**
  * Singleton design pattern on CashRegister
  */
@@ -16,13 +14,10 @@ public class CashRegister {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CashRegister that = (CashRegister) o;
-        return power == that.power &&
-          balance.equals(that.balance) &&
-          currentState.equals(that.currentState) &&
-          drawerState == that.drawerState;
+        if(o instanceof CashRegister){
+            return true;
+        }
+        return false;
     }
 
     @Override

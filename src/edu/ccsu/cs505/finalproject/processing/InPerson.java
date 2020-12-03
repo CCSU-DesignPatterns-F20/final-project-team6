@@ -17,8 +17,8 @@ public class InPerson implements OrderingStrategy {
     @Override
     public void orderFood() throws Exception {
 
-        System.out.println("Hello thank you for coming to our restaurant. Here are the items we have today");
-
+        System.out.println("Thank you for coming to our restaurant. Here are the items we have today");
+        Thread.sleep(2000);
         Menu<Food> menu = new Menu.Builder().Build();
 
         menu.printItems();

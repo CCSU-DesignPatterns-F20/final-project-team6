@@ -63,8 +63,18 @@ public abstract class FoodDecorator extends Food{
 		this.decoratedFood.toppings = toppings;
 	}
 
+	/**
+	 * prints Food item toppings to choose from
+	 */
 	public void printToppings() {
 		this.decoratedFood.printToppings();
+	}
+
+	/**
+	 * @param configurable set to false one configurable item is configured
+	 */
+	public void setIsConfigurable(boolean configurable){
+		this.decoratedFood.isConfigurable = configurable;
 	}
 
 	@Override
