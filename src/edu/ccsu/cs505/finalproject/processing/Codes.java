@@ -1,4 +1,4 @@
-package edu.ccsu.cs505.finalproject;
+package edu.ccsu.cs505.finalproject.processing;
 
 public interface Codes {
 	public static final String ANSI_RESET = "\u001B[0m";
