@@ -52,7 +52,7 @@ public class Cashier {
                 intToppingIndex = scanner.nextInt();
                 if (intToppingIndex == 0) {
                     break;
-                }else if(intToppingIndex > 0 && intToppingIndex < 5)
+                }else if(intToppingIndex > 0 && intToppingIndex <= menuItem.getToppings().size())
                 {
                     Toppings topping = (Toppings) menuItem.getToppings().get(--intToppingIndex).clone();
                     foodPick.addTopping( topping );
